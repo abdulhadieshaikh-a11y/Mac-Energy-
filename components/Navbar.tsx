@@ -25,24 +25,24 @@ export function Logo({ className = "" }: { className?: string }) {
           <path
             d="M20 2 L36 11 L36 29 L20 38 L4 29 L4 11 Z"
             fill="url(#logoGrad)"
-            stroke="#3ED8E0"
+            stroke="#00d4aa"
             strokeWidth="1.5"
           />
           {/* Network nodes inside */}
-          <circle cx="20" cy="14" r="2.5" fill="#3ED8E0" />
-          <circle cx="13" cy="24" r="2" fill="#4C8DFF" />
-          <circle cx="27" cy="24" r="2" fill="#4C8DFF" />
+          <circle cx="20" cy="14" r="2.5" fill="#00d4aa" />
+          <circle cx="13" cy="24" r="2" fill="#3b82f6" />
+          <circle cx="27" cy="24" r="2" fill="#3b82f6" />
           {/* Connection lines */}
-          <line x1="20" y1="16.5" x2="13" y2="22" stroke="#3ED8E0" strokeWidth="1" opacity="0.5" />
-          <line x1="20" y1="16.5" x2="27" y2="22" stroke="#3ED8E0" strokeWidth="1" opacity="0.5" />
-          <line x1="13" y1="24" x2="27" y2="24" stroke="#4C8DFF" strokeWidth="1" opacity="0.3" />
+          <line x1="20" y1="16.5" x2="13" y2="22" stroke="#00d4aa" strokeWidth="1" opacity="0.5" />
+          <line x1="20" y1="16.5" x2="27" y2="22" stroke="#00d4aa" strokeWidth="1" opacity="0.5" />
+          <line x1="13" y1="24" x2="27" y2="24" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
           {/* Pulse dot */}
-          <circle cx="20" cy="14" r="1" fill="#3ED8E0" className="animate-pulseDot" />
+          <circle cx="20" cy="14" r="1" fill="#00d4aa" className="animate-pulseDot" />
           {/* Gradient def */}
           <defs>
             <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3ED8E0" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#4C8DFF" stopOpacity="0.08" />
+              <stop offset="0%" stopColor="#00d4aa" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.08" />
             </linearGradient>
           </defs>
         </svg>

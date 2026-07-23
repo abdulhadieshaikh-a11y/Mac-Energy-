@@ -28,8 +28,8 @@ export default function NetworkGraph() {
     <svg viewBox="0 0 600 430" className="w-full h-full" role="img" aria-label="Network topology diagram">
       <defs>
         <radialGradient id="gwGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#3ED8E0" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#3ED8E0" stopOpacity="0" />
+          <stop offset="0%" stopColor="#00d4aa" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#00d4aa" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -43,12 +43,12 @@ export default function NetworkGraph() {
               y1={from.y}
               x2={to.x}
               y2={to.y}
-              stroke="#22303C"
+              stroke="#1c2842"
               strokeWidth="1.5"
             />
             <motion.circle
               r="3"
-              fill="#3ED8E0"
+              fill="#00d4aa"
               initial={{ opacity: 0 }}
               animate={{
                 cx: [from.x, to.x],
@@ -74,15 +74,15 @@ export default function NetworkGraph() {
             cx={n.x}
             cy={n.y}
             r={n.r}
-            fill="#0F141C"
-            stroke={n.id === "gw" ? "#3ED8E0" : "#4C8DFF"}
+            fill="#0f1525"
+            stroke={n.id === "gw" ? "#00d4aa" : "#3b82f6"}
             strokeWidth={n.id === "gw" ? 2.5 : 2}
           />
           <circle
             cx={n.x}
             cy={n.y}
             r="2.2"
-            fill={n.id === "gw" ? "#3ED8E0" : "#4C8DFF"}
+            fill={n.id === "gw" ? "#00d4aa" : "#3b82f6"}
             className="animate-pulseDot"
           />
           <text
@@ -92,7 +92,7 @@ export default function NetworkGraph() {
             fontFamily="var(--font-mono)"
             fontSize="9"
             letterSpacing="0.05em"
-            fill="#7C8B98"
+            fill="#64748b"
           >
             {n.label}
           </text>
@@ -102,7 +102,7 @@ export default function NetworkGraph() {
             textAnchor="middle"
             fontFamily="var(--font-mono)"
             fontSize="8"
-            fill="#3ED8E0"
+            fill="#00d4aa"
             opacity="0.7"
           >
             {n.ip}
