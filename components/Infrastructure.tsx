@@ -27,23 +27,23 @@ const gear = [
   },
   {
     icon: LaptopIcon,
-    name: "Endpoint Laptops",
+    name: "Endpoint Fleet",
     meta: "FLEET // 340 UNITS",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
     specs: "Imaged and enrolled with centralized management",
   },
   {
     icon: MonitorIcon,
-    name: "Workstation Monitors",
+    name: "Workstation Displays",
     meta: "DISPLAY // 27\" QHD",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
     specs: "Dual-display setups for maximum productivity",
   },
   {
     icon: CableIcon,
     name: "Structured Cabling",
     meta: "CAT6A // PATCH PANEL",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
     specs: "Cat6A runs with certified test results",
   },
 ];
@@ -75,12 +75,13 @@ export default function Infrastructure() {
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
               className="relative rounded-xl border border-line bg-base-900 overflow-hidden group hover:border-signal-cyan/40 transition-all duration-300"
             >
-              <div className="relative h-44 overflow-hidden">
+              <div className="relative h-44 overflow-hidden bg-base-850">
                 <img
                   src={g.image}
                   alt={g.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-900/20 to-base-900" />
                 <div className="absolute top-3 right-3">

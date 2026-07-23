@@ -25,28 +25,28 @@ const services = [
     tag: "02",
     title: "Computer Lab Setup",
     desc: "Full lab builds — workstations, monitors, shared storage, and classroom-ready network access.",
-    image: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
   },
   {
     icon: ServerRackIcon,
     tag: "03",
     title: "Hardware & Device Management",
     desc: "Procurement, imaging, and lifecycle support for laptops, desktops, monitors, and peripherals.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&q=80",
   },
   {
     icon: ApiIcon,
     tag: "04",
     title: "API & Systems Integration",
     desc: "Connecting internal tools and services through clean, documented, well-monitored APIs.",
-    image: "https://images.unsplash.com/photo-1537432376149-e84978e17840?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80",
   },
   {
     icon: CableIcon,
     tag: "05",
     title: "Structured Cabling",
     desc: "Cat6/Cat6a runs, patch panels, and cable management done to a standard that survives audits.",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
   },
   {
     icon: WifiIcon,
@@ -67,7 +67,7 @@ const services = [
     tag: "08",
     title: "Monitoring & Support",
     desc: "24/7 uptime monitoring with a support line that actually picks up when something breaks.",
-    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
   },
 ];
 
@@ -96,14 +96,15 @@ export default function Services() {
             transition={{ duration: 0.5, delay: (i % 4) * 0.08 }}
             className="group rounded-xl border border-line bg-base-900 overflow-hidden hover:border-signal-cyan/40 transition-all duration-300 hover:shadow-lg hover:shadow-signal-cyan/5"
           >
-            <div className="relative h-36 overflow-hidden">
+            <div className="relative h-36 overflow-hidden bg-base-850">
               <img
                 src={s.image}
                 alt={s.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-base-900/20 via-base-900/40 to-base-900" />
+              <div className="absolute inset-0 bg-gradient-to-b from-base-900/10 via-base-900/40 to-base-900" />
               <div className="absolute top-3 right-3">
                 <span className="mono-tag text-[10px] text-ink-500 bg-base-900/80 backdrop-blur-sm px-2 py-1 rounded">{s.tag}</span>
               </div>

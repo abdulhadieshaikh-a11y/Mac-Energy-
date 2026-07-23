@@ -48,6 +48,11 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
 }
 
+/* Mobile responsive image fallback */
+img {
+  background-color: #0F141C;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -105,4 +110,11 @@ body {
 }
 .animate-borderGlow {
   animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .mono-tag {
+    letter-spacing: 0.04em;
+  }
 }
