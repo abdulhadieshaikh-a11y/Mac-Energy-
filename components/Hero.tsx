@@ -73,19 +73,19 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} id="top" className="relative pt-40 pb-24 md:pt-48 md:pb-32 min-h-[95vh] flex items-center">
-      {/* ── parallax background ── */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        style={{ y: bgY, scale: bgScale, backgroundImage: "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=85')", backgroundSize: "cover", backgroundPosition: "center" }}
-      />
-      <div className="absolute inset-0 z-[1] bg-base-900/55" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-base-950/95 via-base-950/70 to-transparent" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-base-950 via-base-950/30 to-transparent" />
-      <div className="absolute inset-0 z-[1] bg-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_80%_80%_at_30%_40%,black,transparent)]" />
-
-      {/* ── accent glows ── */}
-      <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] rounded-full bg-signal-cyan/[0.07] blur-[120px] z-[1]" />
-      <div className="absolute bottom-20 right-10 w-[350px] h-[350px] rounded-full bg-signal-blue/[0.06] blur-[100px] z-[1]" />
+      {/* ── clipped background layer ── */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{ y: bgY, scale: bgScale, backgroundImage: "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=85')", backgroundSize: "cover", backgroundPosition: "center" }}
+        />
+        <div className="absolute inset-0 z-[1] bg-base-900/55" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-r from-base-950/95 via-base-950/70 to-transparent" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-base-950 via-base-950/30 to-transparent" />
+        <div className="absolute inset-0 z-[1] bg-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_80%_80%_at_30%_40%,black,transparent)]" />
+        <div className="absolute -top-32 left-1/4 w-[500px] h-[500px] rounded-full bg-signal-cyan/[0.07] blur-[120px] z-[1]" />
+        <div className="absolute bottom-20 right-10 w-[350px] h-[350px] rounded-full bg-signal-blue/[0.06] blur-[100px] z-[1]" />
+      </div>
 
       {/* ── animated scan line ── */}
       <motion.div
