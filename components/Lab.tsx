@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MonitorIcon } from "./HardwareIcons";
-import { Check, Server, Wifi, Shield, Activity } from "lucide-react";
+import { Check, Server, Wifi, Shield, Activity, Cable, HardDrive } from "lucide-react";
 
 const rows = 4;
 const cols = 6;
@@ -12,6 +12,13 @@ const capabilities = [
   { icon: Wifi, label: "Full Wireless Coverage", desc: "Site-surveyed AP placement ensuring zero dead zones across classrooms, offices, and labs" },
   { icon: Shield, label: "Access Control", desc: "Centralized login, VLAN segmentation, and user policies that keep the network secure" },
   { icon: Activity, label: "Live Monitoring", desc: "Real-time dashboards tracking every port, switch, and endpoint — issues fixed before users notice" },
+];
+
+const labFeatures = [
+  { icon: Cable, text: "Cat6A cabling with certified test results for every run" },
+  { icon: HardDrive, text: "Centralized storage and print servers accessible from every workstation" },
+  { icon: MonitorIcon, text: "24-seat labs with dual-monitor setups and gigabit per-seat links" },
+  { icon: Shield, text: "Role-based access control with Active Directory integration" },
 ];
 
 export default function Lab() {
@@ -70,8 +77,8 @@ export default function Lab() {
                 className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-base-950/80 to-transparent" />
-              <div className="absolute bottom-3 left-3">
-                <div className="text-[11px] text-ink-300">Router & Switch Deployments</div>
+              <div className="absolute bottom-3 left-3 right-3">
+                <div className="text-[11px] text-ink-300 font-medium">Router & Switch Deployments</div>
               </div>
             </motion.div>
 
@@ -83,13 +90,13 @@ export default function Lab() {
               className="rounded-xl overflow-hidden border border-line relative group"
             >
               <img
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80"
-                alt="Structured cabling and patch panels"
+                src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&q=80"
+                alt="Server rack hardware"
                 className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-base-950/80 to-transparent" />
-              <div className="absolute bottom-3 left-3">
-                <div className="text-[11px] text-ink-300">Structured Cabling & Patch Panels</div>
+              <div className="absolute bottom-3 left-3 right-3">
+                <div className="text-[11px] text-ink-300 font-medium">Server Rack Installations</div>
               </div>
             </motion.div>
           </div>
@@ -130,21 +137,21 @@ export default function Lab() {
         </div>
 
         {/* Right: Capabilities */}
-        <div className="space-y-6">
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            <div className="rounded-xl border border-line bg-base-850/40 p-4 text-center">
+        <div className="space-y-5">
+          <div className="grid grid-cols-2 gap-3 mb-8">
+            <div className="rounded-xl border border-line bg-base-850/40 p-4 text-center hover:border-signal-cyan/30 transition-colors">
               <div className="font-display font-extrabold text-3xl text-signal-cyan">24</div>
               <div className="mono-tag text-[9px] text-ink-500 mt-1">SEATS / LAB</div>
             </div>
-            <div className="rounded-xl border border-line bg-base-850/40 p-4 text-center">
+            <div className="rounded-xl border border-line bg-base-850/40 p-4 text-center hover:border-signal-blue/30 transition-colors">
               <div className="font-display font-extrabold text-3xl text-signal-blue">1Gbps</div>
               <div className="mono-tag text-[9px] text-ink-500 mt-1">PER-SEAT LINK</div>
             </div>
-            <div className="rounded-xl border border-line bg-base-850/40 p-4 text-center">
+            <div className="rounded-xl border border-line bg-base-850/40 p-4 text-center hover:border-signal-green/30 transition-colors">
               <div className="font-display font-extrabold text-3xl text-signal-green">24/7</div>
               <div className="mono-tag text-[9px] text-ink-500 mt-1">MONITORING</div>
             </div>
-            <div className="rounded-xl border border-line bg-base-850/40 p-4 text-center">
+            <div className="rounded-xl border border-line bg-base-850/40 p-4 text-center hover:border-signal-amber/30 transition-colors">
               <div className="font-display font-extrabold text-3xl text-signal-amber">99.9%</div>
               <div className="mono-tag text-[9px] text-ink-500 mt-1">UPTIME</div>
             </div>
@@ -169,13 +176,18 @@ export default function Lab() {
             </motion.div>
           ))}
 
-          <div className="rounded-xl border border-signal-green/20 bg-signal-green/5 p-5 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-signal-green/20 flex items-center justify-center shrink-0">
-              <Check size={18} className="text-signal-green" />
-            </div>
-            <div>
-              <div className="font-display font-bold text-[14px]">Every setup includes</div>
-              <div className="text-ink-500 text-[12px] mt-0.5">Full site assessment, topology design, installation, labeling, documentation, and 30-day support</div>
+          {/* Lab build features */}
+          <div className="rounded-xl border border-line bg-base-850/20 p-5 mt-6">
+            <div className="mono-tag text-[10px] text-signal-cyan mb-4">EVERY LAB BUILD INCLUDES</div>
+            <div className="space-y-3">
+              {labFeatures.map((f, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span className="mt-0.5 w-5 h-5 rounded-full bg-signal-cyan/10 border border-signal-cyan/20 flex items-center justify-center shrink-0">
+                    <Check size={11} className="text-signal-cyan" />
+                  </span>
+                  <p className="text-ink-400 text-[13px] leading-relaxed">{f.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -53,14 +53,14 @@ const services = [
     tag: "06",
     title: "Wireless Deployment",
     desc: "Site-surveyed Wi-Fi coverage with access point placement tuned for real-world density.",
-    image: "https://images.unsplash.com/photo-1600428877877-61f60e4b6350?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80",
   },
   {
     icon: ShieldIcon,
     tag: "07",
     title: "Network Security",
     desc: "Firewalls, VLAN segmentation, and access control that keep unwanted traffic out.",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80",
   },
   {
     icon: SwitchIcon,
