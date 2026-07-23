@@ -72,7 +72,7 @@ export default function Hero() {
   const graphY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
 
   return (
-    <section ref={sectionRef} id="top" className="relative pt-40 pb-24 md:pt-48 md:pb-32 min-h-[95vh] flex items-center overflow-hidden">
+    <section ref={sectionRef} id="top" className="relative pt-40 pb-14 md:pt-48 md:pb-20 min-h-[95vh] flex items-center overflow-hidden">
       {/* ── clipped background layer ── */}
       <div className="absolute inset-0 z-0">
         <motion.div
