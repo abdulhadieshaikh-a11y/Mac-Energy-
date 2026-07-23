@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Menu, X, Phone, ArrowRight, ChevronRight, Zap } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Menu, X, Phone, ArrowRight, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -18,27 +19,21 @@ export const PHONE_TEL = "tel:0332101955";
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center gap-3 group ${className}`}>
-      {/* Professional hexagonal logo */}
       <div className="relative shrink-0">
         <svg width="40" height="40" viewBox="0 0 40 40" className="shrink-0">
-          {/* Hexagon background */}
           <path
             d="M20 2 L36 11 L36 29 L20 38 L4 29 L4 11 Z"
             fill="url(#logoGrad)"
             stroke="#00d4aa"
             strokeWidth="1.5"
           />
-          {/* Network nodes inside */}
           <circle cx="20" cy="14" r="2.5" fill="#00d4aa" />
           <circle cx="13" cy="24" r="2" fill="#3b82f6" />
           <circle cx="27" cy="24" r="2" fill="#3b82f6" />
-          {/* Connection lines */}
           <line x1="20" y1="16.5" x2="13" y2="22" stroke="#00d4aa" strokeWidth="1" opacity="0.5" />
           <line x1="20" y1="16.5" x2="27" y2="22" stroke="#00d4aa" strokeWidth="1" opacity="0.5" />
           <line x1="13" y1="24" x2="27" y2="24" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
-          {/* Pulse dot */}
           <circle cx="20" cy="14" r="1" fill="#00d4aa" className="animate-pulseDot" />
-          {/* Gradient def */}
           <defs>
             <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#00d4aa" stopOpacity="0.15" />
@@ -61,6 +56,10 @@ export function Logo({ className = "" }: { className?: string }) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("#top");
+  const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -68,6 +67,46 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // track active section on scroll
+  useEffect(() => {
+    const sectionIds = links.map((l) => l.href.replace("#", ""));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive("#" + entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  // calculate underline position
+  const getUnderlineStyle = () => {
+    if (hoverIdx !== null) {
+      const el = linkRefs.current[hoverIdx];
+      if (el) {
+        return { left: el.offsetLeft, width: el.offsetWidth, opacity: 1 };
+      }
+    }
+    const idx = links.findIndex((l) => l.href === active);
+    if (idx >= 0) {
+      const el = linkRefs.current[idx];
+      if (el) {
+        return { left: el.offsetLeft, width: el.offsetWidth, opacity: 1 };
+      }
+    }
+    return { left: 0, width: 0, opacity: 0 };
+  };
+
+  const underlineStyle = getUnderlineStyle();
 
   return (
     <header
@@ -82,16 +121,33 @@ export default function Navbar() {
         <Logo />
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-0.5">
-          {links.map((l) => (
+        <nav ref={navRef} className="hidden lg:flex items-center gap-0.5 relative">
+          {links.map((l, i) => (
             <a
               key={l.href}
               href={l.href}
-              className="relative px-4 py-2 font-body text-[13px] font-medium text-ink-400 hover:text-ink-100 transition-all duration-200 rounded-lg hover:bg-white/[0.05]"
+              ref={(el) => { linkRefs.current[i] = el; }}
+              onMouseEnter={() => setHoverIdx(i)}
+              onMouseLeave={() => setHoverIdx(null)}
+              className={`relative px-4 py-2 font-body text-[13px] font-medium transition-all duration-200 rounded-lg ${
+                active === l.href
+                  ? "text-ink-100"
+                  : "text-ink-400 hover:text-ink-100 hover:bg-white/[0.05]"
+              }`}
             >
               {l.label}
             </a>
           ))}
+          {/* animated underline */}
+          <motion.div
+            className="absolute bottom-0 h-[2px] rounded-full bg-signal-cyan"
+            animate={{
+              left: underlineStyle.left,
+              width: underlineStyle.width,
+              opacity: underlineStyle.opacity,
+            }}
+            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+          />
         </nav>
 
         {/* Desktop right actions */}
@@ -134,7 +190,11 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="flex items-center justify-between font-body text-[14px] font-medium text-ink-300 hover:text-signal-cyan py-3.5 px-4 rounded-xl hover:bg-white/[0.04] transition-all"
+              className={`flex items-center justify-between font-body text-[14px] font-medium py-3.5 px-4 rounded-xl transition-all ${
+                active === l.href
+                  ? "text-signal-cyan bg-signal-cyan/[0.06] border-l-2 border-signal-cyan"
+                  : "text-ink-300 hover:text-signal-cyan hover:bg-white/[0.04]"
+              }`}
               style={{ transitionDelay: `${i * 30}ms` }}
             >
               {l.label}

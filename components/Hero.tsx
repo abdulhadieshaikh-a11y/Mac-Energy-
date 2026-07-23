@@ -68,11 +68,11 @@ export default function Hero() {
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
   const graphY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
 
   return (
-    <section ref={sectionRef} id="top" className="relative pt-40 pb-24 md:pt-48 md:pb-32 overflow-hidden min-h-[95vh] flex items-center">
+    <section ref={sectionRef} id="top" className="relative pt-40 pb-24 md:pt-48 md:pb-32 min-h-[95vh] flex items-center">
       {/* ── parallax background ── */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -138,7 +138,7 @@ export default function Hero() {
 
           {/* ── heading: word-by-word wipe reveal ── */}
           <motion.h1
-            className="font-display font-extrabold text-[36px] leading-[1.08] sm:text-[50px] lg:text-[64px] text-balance tracking-tight"
+            className="font-display font-extrabold text-[38px] leading-[1.12] sm:text-[52px] lg:text-[68px] text-balance tracking-tight"
           >
             <span className="block overflow-hidden">
               <motion.span
