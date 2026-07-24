@@ -7,7 +7,7 @@ import NetworkOpsDashboard from "./NetworkOpsDashboard";
 import { PHONE_DISPLAY, PHONE_TEL } from "./Navbar";
 
 const heroSlides = [
-  "https://images.unsplash.com/photo-1551288049-3010b3910140?w=1920&q=85",
+  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&q=85",
   "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1920&q=85",
   "https://images.unsplash.com/photo-1614064641308-3e1d0ac7c8eb?w=1920&q=85",
 ];
@@ -305,7 +305,7 @@ export default function Hero() {
               href={PHONE_TEL}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="group inline-flex items-center justify-center gap-2.5 bg-signal-green/10 border border-signal-green/30 px-7 py-3.5 rounded-xl text-signal-green font-bold hover:bg-signal-green/15 hover:border-signal-green/50 transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-2.5 bg-signal-green/10 border border-signal-green/30 px-7 py-3.5 rounded-xl text-signal-green font-bold hover:bg-signal-green/15 hover:border-signal-green/50 transition-all duration-300 animate-pulseGlow"
             >
               <Phone size={17} className="group-hover:animate-bounce" />
               <span>Call Now</span>
