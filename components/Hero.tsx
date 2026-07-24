@@ -121,9 +121,15 @@ export default function Hero() {
         {heroSlides.map((src, i) => (
           <div
             key={i}
-            className={`hero-slideshow-image ${i === currentSlide ? "active" : ""}`}
             style={{
+              position: "absolute",
+              inset: 0,
               backgroundImage: `url('${src}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              opacity: i === currentSlide ? 1 : 0,
+              transition: "opacity 1.8s ease-in-out",
+              transform: i === currentSlide ? "scale(1.05)" : "scale(1)",
             }}
           />
         ))}
