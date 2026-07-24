@@ -2,16 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Wifi, HardDrive, Activity, Shield, Zap, Server, Monitor, Router, ArrowUpRight, ArrowDownRight } from "lucide-react";
-
-const servers = [
-  { name: "WEB-01", status: "online" as const, load: 42, color: "#00d4aa" },
-  { name: "API-02", status: "online" as const, load: 67, color: "#3b82f6" },
-  { name: "DB-03", status: "online" as const, load: 31, color: "#00d4aa" },
-  { name: "APP-04", status: "warning" as const, load: 89, color: "#f59e0b" },
-  { name: "DNS-05", status: "online" as const, load: 15, color: "#00d4aa" },
-  { name: "CDN-06", status: "online" as const, load: 53, color: "#00d4aa" },
-];
+import { Activity, Shield, Zap, ArrowUpRight, ArrowDownRight, Server, Wifi, HardDrive, Cpu } from "lucide-react";
 
 const logEntries = [
   { time: "14:32:01", msg: "Packet flow optimized → 12Gbps", color: "text-signal-cyan" },
@@ -24,18 +15,10 @@ const logEntries = [
   { time: "14:31:40", msg: "Monitor ping → All endpoints alive", color: "text-signal-green" },
 ];
 
-const bandwidthBars = [
-  { label: "ETH0", value: 87, color: "#00d4aa" },
-  { label: "ETH1", value: 62, color: "#3b82f6" },
-  { label: "ETH2", value: 94, color: "#f59e0b" },
-  { label: "ETH3", value: 45, color: "#00d4aa" },
-  { label: "ETH4", value: 78, color: "#3b82f6" },
-];
-
 function useAnimatedValue(target: number, duration = 2000) {
   const [val, setVal] = useState(0);
-  const startRef = useRef<number | null>(null);
   const fromRef = useRef(0);
+  const startRef = useRef<number | null>(null);
 
   useEffect(() => {
     fromRef.current = val;
@@ -53,95 +36,113 @@ function useAnimatedValue(target: number, duration = 2000) {
   return val;
 }
 
-function BandwidthBar({ label, value, color }: { label: string; value: number; color: string }) {
-  const animatedVal = useAnimatedValue(value, 1500);
-  return (
-    <div className="flex items-center gap-2">
-      <span className="mono-tag text-[8px] text-ink-500 w-7 shrink-0">{label}</span>
-      <div className="flex-1 h-[6px] bg-base-800/80 rounded-full overflow-hidden">
-        <motion.div
-          className="h-full rounded-full"
-          style={{ backgroundColor: color }}
-          initial={{ width: 0 }}
-          animate={{ width: `${value}%` }}
-          transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-        />
-      </div>
-      <span className="mono-tag text-[8px] text-ink-500 w-7 text-right shrink-0">{animatedVal}%</span>
-    </div>
-  );
-}
-
-function ServerGrid() {
-  const [loads, setLoads] = useState(servers.map((s) => s.load));
+function ServerRack() {
+  const [loads, setLoads] = useState([42, 67, 31, 89, 15, 53, 78, 24]);
+  const servers = ["WEB-01", "API-02", "DB-03", "APP-04", "DNS-05", "CDN-06", "LOG-07", "MON-08"];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setLoads((prev) =>
-        prev.map((l, i) => {
-          const delta = (Math.random() - 0.5) * 8;
-          return Math.max(10, Math.min(95, l + delta));
+        prev.map((l) => {
+          const delta = (Math.random() - 0.5) * 6;
+          return Math.max(8, Math.min(95, l + delta));
         })
       );
-    }, 2000);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-1.5">
-      {servers.map((s, i) => (
-        <motion.div
-          key={s.name}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3 + i * 0.08, duration: 0.4 }}
-          className="bg-base-800/60 border border-line/30 rounded-lg p-1.5 text-center hover:border-signal-cyan/30 transition-colors duration-300"
-        >
-          <div className="flex items-center justify-center gap-1 mb-1">
+    <div className="space-y-1">
+      {servers.map((name, i) => {
+        const load = loads[i];
+        const isHigh = load > 80;
+        const isMid = load > 50;
+        return (
+          <motion.div
+            key={name}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 + i * 0.06, duration: 0.4 }}
+            className="flex items-center gap-2 group"
+          >
+            {/* Status LED */}
+            <span className="relative shrink-0">
+              <span
+                className={`block w-1.5 h-1.5 rounded-full ${
+                  isHigh ? "bg-signal-amber" : "bg-signal-green"
+                }`}
+              />
+              <span
+                className={`absolute inset-0 w-1.5 h-1.5 rounded-full animate-ping ${
+                  isHigh ? "bg-signal-amber" : "bg-signal-green"
+                } opacity-50`}
+              />
+            </span>
+
+            {/* Server name */}
+            <span className="mono-tag text-[8px] text-ink-500/70 w-12 shrink-0">{name}</span>
+
+            {/* Visual load bar */}
+            <div className="flex-1 h-[5px] bg-base-800/80 rounded-full overflow-hidden relative">
+              <motion.div
+                className="h-full rounded-full"
+                style={{
+                  background: isHigh
+                    ? "linear-gradient(90deg, #f59e0b, #ef4444)"
+                    : isMid
+                    ? "linear-gradient(90deg, #3b82f6, #00d4aa)"
+                    : "linear-gradient(90deg, #00d4aa, #10b981)",
+                }}
+                animate={{ width: `${load}%` }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+              />
+            </div>
+
+            {/* Load percentage */}
             <span
-              className={`w-1.5 h-1.5 rounded-full ${
-                s.status === "online" ? "bg-signal-green" : "bg-signal-amber"
-              } animate-pulseDot`}
-            />
-            <span className="mono-tag text-[7px] text-ink-500">{s.name}</span>
-          </div>
-          <div className="mono-tag text-[9px] font-bold" style={{ color: loads[i] > 80 ? "#f59e0b" : s.color }}>
-            {Math.round(loads[i])}%
-          </div>
-        </motion.div>
-      ))}
+              className={`mono-tag text-[9px] font-medium w-7 text-right shrink-0 ${
+                isHigh ? "text-signal-amber" : "text-signal-cyan/70"
+              }`}
+            >
+              {Math.round(load)}%
+            </span>
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
 
 function LiveLog() {
-  const [entries, setEntries] = useState(logEntries.slice(0, 4));
-  const [idx, setIdx] = useState(4);
+  const [entries, setEntries] = useState(logEntries.slice(0, 3));
+  const [idx, setIdx] = useState(3);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setEntries((prev) => {
         const next = [logEntries[idx % logEntries.length], ...prev];
-        return next.slice(0, 4);
+        return next.slice(0, 3);
       });
       setIdx((prev) => prev + 1);
-    }, 3000);
+    }, 3500);
     return () => clearInterval(interval);
   }, [idx]);
 
   return (
-    <div className="space-y-1">
+    <div className="space-y-1.5">
       <AnimatePresence mode="popLayout">
         {entries.map((e, i) => (
           <motion.div
-            key={`${e.time}-${i}`}
-            initial={{ opacity: 0, x: -10, height: 0 }}
-            animate={{ opacity: 1, x: 0, height: "auto" }}
-            exit={{ opacity: 0, x: 10, height: 0 }}
-            transition={{ duration: 0.3 }}
+            key={`${e.time}-${i}-${idx}`}
+            initial={{ opacity: 0, y: -8, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: "auto" }}
+            exit={{ opacity: 0, y: 8, height: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             className="flex items-center gap-2 overflow-hidden"
           >
-            <span className="mono-tag text-[7px] text-ink-500/50 shrink-0">{e.time}</span>
+            <span className="w-1 h-1 rounded-full bg-signal-cyan/40 shrink-0" />
+            <span className="mono-tag text-[8px] text-ink-500/40 shrink-0">{e.time}</span>
             <span className={`mono-tag text-[8px] ${e.color} truncate`}>{e.msg}</span>
           </motion.div>
         ))}
@@ -150,16 +151,22 @@ function LiveLog() {
   );
 }
 
-function MetricCard({ icon: Icon, label, value, suffix, color, trend }: {
+function MetricPill({ icon: Icon, label, value, suffix, color, trend }: {
   icon: React.ElementType; label: string; value: string; suffix: string; color: string; trend: "up" | "down";
 }) {
   return (
-    <div className="bg-base-800/40 border border-line/20 rounded-lg px-2.5 py-2 flex items-center gap-2">
-      <Icon size={14} className={color} />
+    <div className="bg-base-800/50 border border-line/20 rounded-xl px-3 py-2.5 flex items-center gap-2.5">
+      <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${
+        color === "text-signal-cyan" ? "bg-signal-cyan/10" :
+        color === "text-signal-green" ? "bg-signal-green/10" :
+        "bg-signal-amber/10"
+      }`}>
+        <Icon size={14} className={color} />
+      </div>
       <div className="flex-1 min-w-0">
-        <div className="mono-tag text-[7px] text-ink-500/60">{label}</div>
+        <div className="mono-tag text-[7px] text-ink-500/50 tracking-wider">{label}</div>
         <div className="flex items-center gap-1">
-          <span className={`mono-tag text-[11px] font-bold ${color}`}>{value}{suffix}</span>
+          <span className={`mono-tag text-[12px] font-bold ${color}`}>{value}{suffix}</span>
           {trend === "up" ? (
             <ArrowUpRight size={10} className="text-signal-green" />
           ) : (
@@ -167,17 +174,6 @@ function MetricCard({ icon: Icon, label, value, suffix, color, trend }: {
           )}
         </div>
       </div>
-    </div>
-  );
-}
-
-function PulseRing() {
-  return (
-    <div className="absolute -top-1 -right-1">
-      <span className="relative flex h-3 w-3">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-signal-green opacity-75" />
-        <span className="relative inline-flex rounded-full h-3 w-3 bg-signal-green border border-base-900" />
-      </span>
     </div>
   );
 }
@@ -195,43 +191,36 @@ export default function NetworkOpsDashboard() {
 
   return (
     <div className="w-full space-y-3">
-      {/* ── Top Metrics Row ── */}
-      <div className="grid grid-cols-3 gap-1.5">
-        <MetricCard icon={Activity} label="THROUGHPUT" value="8.4" suffix="Gbps" color="text-signal-cyan" trend="up" />
-        <MetricCard icon={Shield} label="UPTIME" value={uptime} suffix="%" color="text-signal-green" trend="up" />
-        <MetricCard icon={Zap} label="LATENCY" value="3.2" suffix="ms" color="text-signal-amber" trend="down" />
+      {/* ── Metrics Row ── */}
+      <div className="grid grid-cols-3 gap-2">
+        <MetricPill icon={Activity} label="THROUGHPUT" value="8.4" suffix="Gbps" color="text-signal-cyan" trend="up" />
+        <MetricPill icon={Shield} label="UPTIME" value={uptime} suffix="%" color="text-signal-green" trend="up" />
+        <MetricPill icon={Zap} label="LATENCY" value="3.2" suffix="ms" color="text-signal-amber" trend="down" />
       </div>
 
-      {/* ── Bandwidth Monitor ── */}
-      <div className="bg-base-800/40 border border-line/20 rounded-xl p-3">
-        <div className="flex items-center justify-between mb-2.5">
-          <span className="mono-tag text-[9px] text-ink-500/70">BANDWIDTH MONITOR</span>
+      {/* ── Server Rack Visualization ── */}
+      <div className="bg-base-800/40 border border-line/20 rounded-xl p-3.5">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <Server size={12} className="text-signal-cyan/60" />
+            <span className="mono-tag text-[9px] text-ink-500/70 tracking-wider">SERVER RACK</span>
+          </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-signal-cyan animate-pulseDot" />
-            <span className="mono-tag text-[8px] text-signal-cyan/60">LIVE</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-signal-green animate-pulseDot" />
+            <span className="mono-tag text-[8px] text-signal-green/60">8/8 ONLINE</span>
           </div>
         </div>
-        <div className="space-y-1.5">
-          {bandwidthBars.map((b) => (
-            <BandwidthBar key={b.label} {...b} />
-          ))}
-        </div>
+        <ServerRack />
       </div>
 
-      {/* ── Server Status Grid ── */}
-      <div className="bg-base-800/40 border border-line/20 rounded-xl p-3">
+      {/* ── Activity Log ── */}
+      <div className="bg-base-800/40 border border-line/20 rounded-xl p-3.5">
         <div className="flex items-center justify-between mb-2.5">
-          <span className="mono-tag text-[9px] text-ink-500/70">SERVER STATUS</span>
-          <span className="mono-tag text-[8px] text-signal-green/60">6/6 ONLINE</span>
-        </div>
-        <ServerGrid />
-      </div>
-
-      {/* ── Live Activity Log ── */}
-      <div className="bg-base-800/40 border border-line/20 rounded-xl p-3">
-        <div className="flex items-center justify-between mb-2">
-          <span className="mono-tag text-[9px] text-ink-500/70">ACTIVITY LOG</span>
-          <span className="mono-tag text-[8px] text-ink-500/40">AUTO-REFRESH</span>
+          <div className="flex items-center gap-2">
+            <HardDrive size={12} className="text-signal-blue/60" />
+            <span className="mono-tag text-[9px] text-ink-500/70 tracking-wider">ACTIVITY LOG</span>
+          </div>
+          <span className="mono-tag text-[7px] text-ink-500/30">LIVE</span>
         </div>
         <LiveLog />
       </div>
