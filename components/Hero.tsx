@@ -7,7 +7,7 @@ import NetworkOpsDashboard from "./NetworkOpsDashboard";
 import { PHONE_DISPLAY, PHONE_TEL } from "./Navbar";
 
 const heroSlides = [
-  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=85",
+  "https://images.unsplash.com/photo-1551288049-3010b3910140?w=1920&q=85",
   "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1920&q=85",
   "https://images.unsplash.com/photo-1614064641308-3e1d0ac7c8eb?w=1920&q=85",
 ];
