@@ -119,13 +119,11 @@ export default function Hero() {
       {/* ── Background Slideshow ── */}
       <div className="hero-slideshow">
         {heroSlides.map((src, i) => (
-          <motion.div
+          <div
             key={i}
             className={`hero-slideshow-image ${i === currentSlide ? "active" : ""}`}
             style={{
               backgroundImage: `url('${src}')`,
-              y: bgY,
-              scale: bgScale,
             }}
           />
         ))}
