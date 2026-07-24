@@ -53,6 +53,201 @@ img {
   background-color: #0f1525;
 }
 
+/* ── Hero Slideshow ── */
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slideshow-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.hero-slideshow-image.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.hero-slideshow-image.exit {
+  opacity: 0;
+  transform: scale(1.12);
+}
+
+/* ── Animated Particle Grid ── */
+.hero-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(0, 212, 170, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes particleDrift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-80vh) translateX(-30px);
+    opacity: 0;
+  }
+}
+
+/* ── Glowing Orb Animations ── */
+@keyframes orbPulse1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.06;
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.1);
+    opacity: 0.1;
+  }
+  66% {
+    transform: translate(-15px, 15px) scale(0.95);
+    opacity: 0.07;
+  }
+}
+
+@keyframes orbPulse2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: translate(-25px, 20px) scale(1.15);
+    opacity: 0.09;
+  }
+}
+
+@keyframes orbPulse3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.04;
+  }
+  40% {
+    transform: translate(20px, 25px) scale(1.08);
+    opacity: 0.08;
+  }
+  70% {
+    transform: translate(-10px, -15px) scale(0.92);
+    opacity: 0.05;
+  }
+}
+
+.animate-orb1 {
+  animation: orbPulse1 8s ease-in-out infinite;
+}
+.animate-orb2 {
+  animation: orbPulse2 10s ease-in-out infinite;
+}
+.animate-orb3 {
+  animation: orbPulse3 12s ease-in-out infinite;
+}
+
+/* ── Enhanced Scan Line ── */
+@keyframes scanLine {
+  0% {
+    top: -5%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+/* ── Text Reveal Clip ── */
+@keyframes clipReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+@keyframes clipRevealUp {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0% 0 0 0);
+  }
+}
+
+/* ── Gradient Border Animation ── */
+@keyframes gradientBorderRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-border {
+  background-size: 200% 200%;
+  animation: gradientBorderRotate 4s ease infinite;
+}
+
+/* ── Pulse Ring ── */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* ── Enhanced blink ── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -61,6 +256,7 @@ img {
   animation: blink 1s step-end infinite;
 }
 
+/* ── Pulse Glow (cyan) ── */
 @keyframes pulseGlow {
   0%, 100% {
     box-shadow: 0 0 5px rgba(0, 212, 170, 0.3), 0 0 10px rgba(0, 212, 170, 0.1);
@@ -73,6 +269,7 @@ img {
   animation: pulseGlow 2s ease-in-out infinite;
 }
 
+/* ── Shimmer ── */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -82,6 +279,7 @@ img {
   animation: shimmer 3s linear infinite;
 }
 
+/* ── Fade In Up ── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -96,6 +294,7 @@ img {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
+/* ── Float ── */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -104,6 +303,7 @@ img {
   animation: float 6s ease-in-out infinite;
 }
 
+/* ── Border Glow ── */
 @keyframes borderGlow {
   0%, 100% { border-color: rgba(0, 212, 170, 0.3); }
   50% { border-color: rgba(0, 212, 170, 0.6); }
@@ -112,9 +312,44 @@ img {
   animation: borderGlow 3s ease-in-out infinite;
 }
 
+/* ── Typewriter Cursor ── */
+@keyframes cursorPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px rgba(0, 212, 170, 0.6); }
+  50% { opacity: 0.3; box-shadow: 0 0 8px rgba(0, 212, 170, 0.8); }
+}
+.animate-cursor {
+  animation: cursorPulse 0.8s ease-in-out infinite;
+}
+
+/* ── Hero-specific smooth will-change hints ── */
+.will-change-transform {
+  will-change: transform;
+}
+.will-change-opacity {
+  will-change: opacity;
+}
+
 /* Mobile optimizations */
 @media (max-width: 640px) {
   .mono-tag {
     letter-spacing: 0.04em;
+  }
+}
+
+/* ── Reduce motion for accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slideshow-image {
+    transition: opacity 0.3s ease;
+  }
+  .hero-slideshow-image.active {
+    transform: scale(1);
+  }
+  .hero-slideshow-image.exit {
+    transform: scale(1);
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
