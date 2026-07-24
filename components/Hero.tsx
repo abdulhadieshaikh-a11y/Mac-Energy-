@@ -9,6 +9,7 @@ import { PHONE_DISPLAY, PHONE_TEL } from "./Navbar";
 const heroSlides = [
   "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1920&q=85",
   "https://images.unsplash.com/photo-1614064641308-3e1d0ac7c8eb?w=1920&q=85",
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=85",
 ];
 
 const particles = Array.from({ length: 25 }, (_, i) => ({
@@ -99,43 +100,48 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
+    let loaded = 0;
     heroSlides.forEach((src) => {
       const img = new Image();
+      img.onload = () => {
+        loaded++;
+        if (loaded >= heroSlides.length) setImagesLoaded(true);
+      };
+      img.onerror = () => {
+        loaded++;
+        if (loaded >= heroSlides.length) setImagesLoaded(true);
+      };
       img.src = src;
     });
   }, []);
 
   useEffect(() => {
+    if (!imagesLoaded) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [imagesLoaded]);
 
   return (
     <section ref={sectionRef} id="top" className="relative pt-40 pb-14 md:pt-48 md:pb-20 min-h-[95vh] flex items-center overflow-hidden">
       {/* ── Background Slideshow ── */}
       <div className="hero-slideshow">
-        {heroSlides.map((src, i) => (
-          <img
-            key={src}
-            src={src}
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={currentSlide}
+            src={heroSlides[currentSlide]}
             alt=""
-            loading={i === 0 ? "eager" : "lazy"}
-            style={{
-              position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              opacity: i === currentSlide ? 1 : 0,
-              transition: "opacity 1.8s ease-in-out",
-              transform: i === currentSlide ? "scale(1.05)" : "scale(1)",
-            }}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1.05 }}
+            exit={{ opacity: 0, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover"
           />
-        ))}
+        </AnimatePresence>
         {/* Progress bar */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10 bg-base-950/50">
           <motion.div
