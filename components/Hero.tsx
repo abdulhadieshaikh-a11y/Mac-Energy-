@@ -7,9 +7,8 @@ import NetworkOpsDashboard from "./NetworkOpsDashboard";
 import { PHONE_DISPLAY, PHONE_TEL } from "./Navbar";
 
 const heroSlides = [
-  "https://teletraders.net/wp-content/uploads/2017/10/sell-used-networking-servers.jpg",
-  "https://teletraders.net/wp-content/uploads/2022/12/1670524462.png",
-  "https://teletraders.net/wp-content/uploads/2017/03/networking-1.jpg",
+  "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1920&q=85",
+  "https://images.unsplash.com/photo-1614064641308-3e1d0ac7c8eb?w=1920&q=85",
 ];
 
 const particles = Array.from({ length: 25 }, (_, i) => ({
