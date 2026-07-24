@@ -119,14 +119,17 @@ export default function Hero() {
       {/* ── Background Slideshow ── */}
       <div className="hero-slideshow">
         {heroSlides.map((src, i) => (
-          <div
-            key={i}
+          <img
+            key={src}
+            src={src}
+            alt=""
+            loading={i === 0 ? "eager" : "lazy"}
             style={{
               position: "absolute",
               inset: 0,
-              backgroundImage: `url('${src}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
               opacity: i === currentSlide ? 1 : 0,
               transition: "opacity 1.8s ease-in-out",
               transform: i === currentSlide ? "scale(1.05)" : "scale(1)",
