@@ -23,7 +23,6 @@ const responseStats = [
     color: "text-signal-cyan",
     border: "border-signal-cyan/30",
     bg: "bg-signal-cyan/10",
-    gradient: "from-signal-cyan to-signal-blue",
   },
   {
     icon: Headphones,
@@ -32,7 +31,6 @@ const responseStats = [
     color: "text-signal-green",
     border: "border-signal-green/30",
     bg: "bg-signal-green/10",
-    gradient: "from-signal-green to-signal-cyan",
   },
   {
     icon: Zap,
@@ -41,7 +39,6 @@ const responseStats = [
     color: "text-signal-amber",
     border: "border-signal-amber/30",
     bg: "bg-signal-amber/10",
-    gradient: "from-signal-amber to-signal-cyan",
   },
 ];
 
@@ -69,27 +66,26 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto mb-20"
+          className="max-w-3xl mx-auto mb-20"
         >
-          {responseStats.map((s) => (
-            <div
-              key={s.label}
-              className="group relative text-center rounded-2xl border border-line/60 bg-base-900/60 backdrop-blur-md p-6 overflow-hidden hover:-translate-y-1 hover:border-signal-cyan/40 transition-all duration-300"
-            >
-              {/* top accent */}
-              <div className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent ${s.color} to-transparent opacity-60`} />
-              {/* soft glow */}
-              <div className={`absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full ${s.bg} blur-2xl opacity-60`} />
-              {/* icon */}
-              <span className={`relative w-12 h-12 rounded-xl ${s.bg} border ${s.border} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <s.icon size={20} className={s.color} />
-              </span>
-              <div className={`relative font-display font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r ${s.gradient}`}>
-                {s.value}
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-line/50 rounded-2xl border border-line/60 bg-base-900/60 backdrop-blur-md shadow-xl shadow-black/20 overflow-hidden">
+            {responseStats.map((s) => (
+              <div
+                key={s.label}
+                className="group flex items-center gap-4 px-6 py-5 hover:bg-base-850/50 transition-colors duration-300"
+              >
+                <span
+                  className={`w-11 h-11 rounded-xl ${s.bg} border ${s.border} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <s.icon size={19} className={s.color} />
+                </span>
+                <div className="min-w-0">
+                  <div className={`font-display font-extrabold text-xl ${s.color}`}>{s.value}</div>
+                  <div className="mono-tag text-[9px] text-ink-500 mt-0.5 tracking-wider">{s.label}</div>
+                </div>
               </div>
-              <div className="relative mono-tag text-[9px] text-ink-500 mt-2 tracking-wider">{s.label}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </motion.div>
 
         {/* Main heading */}
