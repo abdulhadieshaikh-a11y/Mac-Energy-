@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Menu, X, Phone, ArrowRight, ChevronRight } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const links = [
@@ -45,7 +45,6 @@ export function Logo({ className = "" }: { className?: string }) {
 }
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("#top");
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
@@ -159,55 +158,36 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className="lg:hidden text-ink-100 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors border border-line/30"
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile phone shortcut */}
+        <div className="lg:hidden flex items-center gap-2">
+          <a
+            href={PHONE_TEL}
+            aria-label="Call us"
+            className="flex items-center justify-center w-10 h-10 rounded-xl border border-signal-green/25 bg-signal-green/[0.06] text-signal-green transition-colors"
+          >
+            <Phone size={17} />
+          </a>
+        </div>
       </div>
 
-      {/* Mobile menu */}
-      <div
-        className={`lg:hidden overflow-hidden transition-all duration-400 ${
-          open ? "max-h-[550px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="bg-base-950/95 backdrop-blur-2xl border-t border-line/30 px-5 py-6 flex flex-col gap-1">
-          {links.map((l, i) => (
+      {/* Mobile nav strip — always visible, horizontally scrollable */}
+      <nav className="lg:hidden border-t border-line/30 bg-base-950/85 backdrop-blur-xl overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex items-center gap-1 px-3 py-2 whitespace-nowrap">
+          {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              onClick={() => setOpen(false)}
-              className={`flex items-center justify-between font-body text-[14px] font-medium py-3.5 px-4 rounded-xl transition-all ${
+              className={`px-3 py-2 font-body text-[12.5px] font-medium rounded-lg transition-colors ${
                 active === l.href
-                  ? "text-signal-cyan bg-signal-cyan/[0.06] border-l-2 border-signal-cyan"
-                  : "text-ink-300 hover:text-signal-cyan hover:bg-white/[0.04]"
+                  ? "text-signal-cyan bg-signal-cyan/[0.08]"
+                  : "text-ink-300 hover:text-ink-100 hover:bg-white/[0.05]"
               }`}
-              style={{ transitionDelay: `${i * 30}ms` }}
             >
               {l.label}
-              <ChevronRight size={14} className="text-ink-500" />
             </a>
           ))}
-          <div className="border-t border-line/30 mt-3 pt-4 flex flex-col gap-3">
-            <a href={PHONE_TEL} className="flex items-center gap-3 text-[14px] font-medium text-signal-green px-4 py-3 rounded-xl bg-signal-green/[0.06] border border-signal-green/20">
-              <span className="w-2 h-2 rounded-full bg-signal-green animate-pulseDot" />
-              {PHONE_DISPLAY}
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="font-body text-[13px] font-bold text-center px-4 py-3.5 rounded-xl bg-gradient-to-r from-signal-cyan to-signal-blue text-base-950 flex items-center justify-center gap-2"
-            >
-              GET A QUOTE
-              <ArrowRight size={14} />
-            </a>
-          </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }
