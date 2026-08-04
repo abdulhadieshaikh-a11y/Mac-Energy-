@@ -28,7 +28,7 @@ const services = [
     title: "Computer Lab Setup",
     desc: "Full lab builds — workstations, monitors, shared storage, and classroom-ready network access.",
     highlights: ["24+ seat labs", "Dual-monitor setups", "Centralized imaging"],
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80",
+    image: "/images/computer-lab-setup.jpg",
   },
   {
     icon: ServerRackIcon,
