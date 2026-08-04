@@ -44,7 +44,7 @@ const services = [
     title: "API & Integration",
     desc: "Connecting internal tools and services through clean, documented, well-monitored APIs.",
     highlights: ["REST & webhook APIs", "Tool interconnection", "Health monitoring"],
-    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&q=80",
+    image: "/images/api-integration.jpg",
   },
   {
     icon: CableIcon,
@@ -60,7 +60,7 @@ const services = [
     title: "Wireless Deployment",
     desc: "Site-surveyed Wi-Fi coverage with access point placement tuned for real-world density.",
     highlights: ["Heat map surveys", "AP density planning", "Zero dead zones"],
-    image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80",
+    image: "/images/wireless-deployment.jpg",
   },
   {
     icon: ShieldIcon,
@@ -68,7 +68,7 @@ const services = [
     title: "Network Security",
     desc: "Firewalls, VLAN segmentation, and access control that keep unwanted traffic out.",
     highlights: ["Firewall rulesets", "VLAN isolation", "Access policies"],
-    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+    image: "/images/network-security.jpg",
   },
   {
     icon: SwitchIcon,
