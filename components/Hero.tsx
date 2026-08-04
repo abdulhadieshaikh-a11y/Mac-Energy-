@@ -149,12 +149,16 @@ export default function Hero() {
           </div>
 
           {/* ── Heading ── */}
-          <h1 className="font-display font-bold text-[38px] leading-[1.08] sm:text-[52px] lg:text-[68px] text-balance tracking-tight">
-            We build the{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-signal-cyan via-signal-blue to-signal-cyan">
-              networks
-            </span>{" "}
-            your systems run on.
+          <h1 className="font-display font-extrabold text-[38px] leading-[1.1] sm:text-[52px] lg:text-[68px] text-balance tracking-tight">
+            <span className="block">
+              We build the{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-signal-cyan via-signal-blue to-signal-amber">
+                networks
+              </span>
+            </span>
+            <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-signal-cyan via-signal-blue to-signal-amber">
+              your systems run on.
+            </span>
           </h1>
 
           {/* ── Paragraph ── */}

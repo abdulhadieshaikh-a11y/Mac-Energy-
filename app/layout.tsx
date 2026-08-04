@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Chakra_Petch, Inter, JetBrains_Mono } from "next/font/google";
+import { Sora, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Chakra_Petch({
+const display = Sora({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-display",
 });
 
