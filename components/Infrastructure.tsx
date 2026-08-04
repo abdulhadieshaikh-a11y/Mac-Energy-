@@ -42,7 +42,7 @@ const gear: GearItem[] = [
     icon: LaptopIcon,
     name: "Endpoint Fleet",
     meta: "FLEET // 340 UNITS",
-    image: "https://images.unsplash.com/photo-1633545505446-586bf83717f0?w=600&q=80",
+    image: "/images/endpoint-fleet.jpg",
     specs: "Imaged and enrolled with centralized management",
   },
   {
