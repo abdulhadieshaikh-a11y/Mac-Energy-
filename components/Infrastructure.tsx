@@ -27,7 +27,6 @@ const gear: GearItem[] = [
     name: "48-Port Switch",
     meta: "L2/L3 // 1000BASE-T",
     image: "/images/switch-48poe.png",
-    fit: "contain",
     bg: "bg-white",
     specs: "Full wire-speed switching with VLAN support",
   },
