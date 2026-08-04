@@ -52,7 +52,7 @@ const services = [
     title: "Structured Cabling",
     desc: "Cat6/Cat6a runs, patch panels, and cable management done to a standard that survives audits.",
     highlights: ["Cat6A certified runs", "Patch panel labeling", "Audit-ready docs"],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    image: "/images/structured-cabling.jpg",
   },
   {
     icon: WifiIcon,
