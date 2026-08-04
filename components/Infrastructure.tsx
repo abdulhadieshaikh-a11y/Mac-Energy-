@@ -8,7 +8,7 @@ const gear = [
     icon: RouterIcon,
     name: "Edge Router",
     meta: "GATEWAY // 10.0.0.1",
-    image: "https://images.unsplash.com/photo-1745847768408-b7b83796cae6?w=600&q=80",
+    image: "/images/edge-router.jpg",
     specs: "High-throughput routing with failover support",
   },
   {
@@ -75,11 +75,11 @@ export default function Infrastructure() {
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
               className="relative rounded-xl border border-line bg-base-900 overflow-hidden group hover:border-signal-cyan/40 transition-all duration-300"
             >
-              <div className="relative h-44 overflow-hidden bg-base-850">
+              <div className="relative aspect-[16/9] overflow-hidden bg-base-850">
                 <img
                   src={g.image}
                   alt={g.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
