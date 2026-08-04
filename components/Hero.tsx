@@ -27,7 +27,7 @@ const heroSlides = [
     alt: "Network switch with structured cables — deployment in progress",
   },
   {
-    src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=85",
+    src: "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?w=1920&q=85",
     alt: "Modern data center server room",
   },
 ];
