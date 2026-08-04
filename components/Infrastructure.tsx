@@ -1,9 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { CSSProperties, ComponentType } from "react";
 import { RouterIcon, SwitchIcon, LaptopIcon, MonitorIcon, ServerRackIcon, CableIcon } from "./HardwareIcons";
 
-const gear = [
+type GearItem = {
+  icon: ComponentType<{ className?: string }>;
+  name: string;
+  meta: string;
+  image: string;
+  fit?: CSSProperties["objectFit"];
+  bg?: string;
+  specs: string;
+};
+
+const gear: GearItem[] = [
   {
     icon: RouterIcon,
     name: "Edge Router",
@@ -15,14 +26,16 @@ const gear = [
     icon: SwitchIcon,
     name: "48-Port Switch",
     meta: "L2/L3 // 1000BASE-T",
-    image: "https://images.unsplash.com/photo-1680691257251-5fead813b73e?w=600&q=80",
+    image: "/images/switch-48poe.png",
+    fit: "contain",
+    bg: "bg-white",
     specs: "Full wire-speed switching with VLAN support",
   },
   {
     icon: ServerRackIcon,
     name: "Server Rack",
     meta: "RACK-04 // 42U",
-    image: "https://images.unsplash.com/photo-1762163516269-3c143e04175c?w=600&q=80",
+    image: "/images/server-rack.jpg",
     specs: "42U rack with managed power distribution",
   },
   {
@@ -75,15 +88,16 @@ export default function Infrastructure() {
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
               className="relative rounded-xl border border-line bg-base-900 overflow-hidden group hover:border-signal-cyan/40 transition-all duration-300"
             >
-              <div className="relative aspect-[16/9] overflow-hidden bg-base-850">
+              <div className={"relative aspect-[16/9] overflow-hidden " + (g.bg ?? "bg-base-850")}>
                 <img
                   src={g.image}
                   alt={g.name}
-                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-center group-hover:scale-110 transition-transform duration-700"
+                  style={{ objectFit: g.fit ?? "cover" }}
                   loading="lazy"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-900/20 to-base-900" />
+                <div className={"absolute inset-0 " + (g.bg === "bg-white" ? "bg-gradient-to-b from-transparent via-transparent to-base-900/80" : "bg-gradient-to-b from-transparent via-base-900/20 to-base-900")} />
                 <div className="absolute top-3 right-3">
                   <span className="w-2 h-2 rounded-full bg-signal-green animate-pulseDot inline-block" />
                 </div>
