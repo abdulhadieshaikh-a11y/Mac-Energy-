@@ -20,7 +20,7 @@ const services = [
     title: "Network Infrastructure",
     desc: "Design and deployment of routers, switches, and gateways that keep traffic moving without bottlenecks.",
     highlights: ["Router & gateway setup", "VLAN configuration", "Failover redundancy"],
-    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80",
+    image: "/images/network-infra.jpg",
   },
   {
     icon: MonitorIcon,

@@ -89,7 +89,7 @@ export default function Lab() {
               className="rounded-xl overflow-hidden border border-line relative group"
             >
               <img
-                src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&q=80"
+                src="/images/server-rack-install.jpg"
                 alt="Server rack hardware"
                 className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-700"
               />
