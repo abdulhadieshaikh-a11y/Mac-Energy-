@@ -20,7 +20,7 @@ const services = [
     title: "Network Infrastructure",
     desc: "Design and deployment of routers, switches, and gateways that keep traffic moving without bottlenecks.",
     highlights: ["Router & gateway setup", "VLAN configuration", "Failover redundancy"],
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80",
   },
   {
     icon: MonitorIcon,
@@ -28,7 +28,7 @@ const services = [
     title: "Computer Lab Setup",
     desc: "Full lab builds — workstations, monitors, shared storage, and classroom-ready network access.",
     highlights: ["24+ seat labs", "Dual-monitor setups", "Centralized imaging"],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80",
   },
   {
     icon: ServerRackIcon,
@@ -36,7 +36,7 @@ const services = [
     title: "Hardware & Devices",
     desc: "Procurement, imaging, and lifecycle support for laptops, desktops, monitors, and peripherals.",
     highlights: ["Bulk procurement", "OS imaging & MDM", "Lifecycle tracking"],
-    image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
   },
   {
     icon: ApiIcon,
@@ -44,7 +44,7 @@ const services = [
     title: "API & Integration",
     desc: "Connecting internal tools and services through clean, documented, well-monitored APIs.",
     highlights: ["REST & webhook APIs", "Tool interconnection", "Health monitoring"],
-    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&q=80",
   },
   {
     icon: CableIcon,
@@ -68,7 +68,7 @@ const services = [
     title: "Network Security",
     desc: "Firewalls, VLAN segmentation, and access control that keep unwanted traffic out.",
     highlights: ["Firewall rulesets", "VLAN isolation", "Access policies"],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
   },
   {
     icon: SwitchIcon,
@@ -76,7 +76,7 @@ const services = [
     title: "Monitoring & Support",
     desc: "24/7 uptime monitoring with a support line that actually picks up when something breaks.",
     highlights: ["Real-time dashboards", "Alert escalation", "24/7 hotline"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
   },
 ];
 

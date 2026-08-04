@@ -91,8 +91,8 @@ function ServerRack() {
                   background: isHigh
                     ? "linear-gradient(90deg, #f59e0b, #ef4444)"
                     : isMid
-                    ? "linear-gradient(90deg, #3b82f6, #00d4aa)"
-                    : "linear-gradient(90deg, #00d4aa, #10b981)",
+                    ? "linear-gradient(90deg, #3d7eff, #22d3ee)"
+                    : "linear-gradient(90deg, #22d3ee, #10b981)",
                 }}
                 animate={{ width: `${load}%` }}
                 transition={{ duration: 1.5, ease: "easeOut" }}

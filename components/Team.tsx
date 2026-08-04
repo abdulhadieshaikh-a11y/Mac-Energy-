@@ -101,7 +101,10 @@ export default function Team() {
           </h2>
           <p className="text-ink-300 mt-4 leading-relaxed max-w-lg">
             Jawed Shaikh leads Mac Energy with deep expertise across the full infrastructure stack —
-            from physical cabling to cloud APIs.
+            from physical cabling and structured Wi-Fi to secure server rooms and API-powered integrations.
+          </p>
+          <p className="text-ink-300 mt-4 leading-relaxed max-w-lg">
+            With a career built on working inside offices, labs, schools, and small data centers, Jawed brings practical experience tuning real networks for performance, reliability, and future growth.
           </p>
 
           <div className="mt-10 grid sm:grid-cols-2 gap-5">
@@ -120,6 +123,26 @@ export default function Team() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mt-10 grid sm:grid-cols-3 gap-4"
+          >
+            {[
+              { icon: Award, title: "Trusted Performance", desc: "Reliable infrastructure built to reduce downtime and support growth." },
+              { icon: Network, title: "Hands-on Delivery", desc: "From rack to desk, every connection is tested and documented." },
+              { icon: Shield, title: "Secure by design", desc: "VLANs, firewalls, and access controls designed for safe everyday use." },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl border border-line bg-base-850/50 p-5 hover:border-signal-cyan/40 transition-all duration-300">
+                <item.icon className="w-10 h-10 text-signal-cyan mb-4" />
+                <h3 className="font-display font-semibold text-base text-ink-100">{item.title}</h3>
+                <p className="text-ink-500 text-[14px] mt-2 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

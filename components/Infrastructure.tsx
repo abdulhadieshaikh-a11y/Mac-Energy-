@@ -8,14 +8,14 @@ const gear = [
     icon: RouterIcon,
     name: "Edge Router",
     meta: "GATEWAY // 10.0.0.1",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&q=80",
     specs: "High-throughput routing with failover support",
   },
   {
     icon: SwitchIcon,
     name: "48-Port Switch",
     meta: "L2/L3 // 1000BASE-T",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",
     specs: "Full wire-speed switching with VLAN support",
   },
   {
@@ -36,14 +36,14 @@ const gear = [
     icon: MonitorIcon,
     name: "Workstation Displays",
     meta: "DISPLAY // 27\" QHD",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=600&q=80",
     specs: "Dual-display setups for maximum productivity",
   },
   {
     icon: CableIcon,
     name: "Structured Cabling",
     meta: "CAT6A // PATCH PANEL",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80",
     specs: "Cat6A runs with certified test results",
   },
 ];

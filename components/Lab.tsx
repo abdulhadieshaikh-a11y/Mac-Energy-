@@ -3,9 +3,8 @@
 import { motion } from "framer-motion";
 import { MonitorIcon } from "./HardwareIcons";
 import { Check, Server, Wifi, Shield, Activity, Cable, HardDrive } from "lucide-react";
-
-const rows = 4;
-const cols = 6;
+import NetworkOpsDashboard from "./NetworkOpsDashboard";
+import NetworkGraph from "./NetworkGraph";
 
 const capabilities = [
   { icon: Server, label: "Server Room Design", desc: "Complete rack layout, cooling, power redundancy, and cable management for enterprise-grade uptime" },
@@ -101,7 +100,7 @@ export default function Lab() {
             </motion.div>
           </div>
 
-          {/* Lab Grid Monitor */}
+          {/* Network Topology */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -109,29 +108,18 @@ export default function Lab() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="rounded-2xl border border-line bg-base-850/60 p-5"
           >
-            <div className="flex items-center justify-between mb-4">
-              <span className="mono-tag text-[10px] text-ink-500">LAB-A // LAYOUT</span>
+            <div className="flex items-center justify-between mb-2">
+              <span className="mono-tag text-[10px] text-ink-500">LAB-A // TOPOLOGY</span>
               <span className="mono-tag text-[10px] text-signal-green flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-signal-green" />
-                24/24 ONLINE
+                7/7 NODES ONLINE
               </span>
             </div>
-            <div className="grid grid-cols-6 gap-2">
-              {Array.from({ length: rows * cols }).map((_, i) => (
-                <div
-                  key={i}
-                  className="aspect-square rounded-md border border-line bg-base-900 flex items-center justify-center relative hover:border-signal-cyan/40 transition-colors"
-                >
-                  <MonitorIcon className="w-4 h-4 text-signal-blue" />
-                  <span
-                    className="absolute bottom-0.5 right-0.5 w-1 h-1 rounded-full bg-signal-green"
-                    style={{ animationDelay: `${(i % 7) * 0.2}s` }}
-                  />
-                </div>
-              ))}
+            <div className="h-64">
+              <NetworkGraph />
             </div>
             <p className="mono-tag text-[9px] text-ink-500 mt-3 text-center">
-              SWITCH: 48-PORT // UPLINK: 1Gbps // VLAN 20
+              GATEWAY 10.0.0.1 // VLAN 20 // SWITCH: 48-PORT
             </p>
           </motion.div>
         </div>
@@ -190,6 +178,30 @@ export default function Lab() {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* ── Live Network Ops Dashboard ── */}
+      <div className="mt-16 rounded-2xl border border-line/40 bg-base-900/70 backdrop-blur-xl p-5 sm:p-6 shadow-2xl shadow-black/40">
+        <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center gap-2.5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-signal-green opacity-60" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-signal-green" />
+            </span>
+            <span className="mono-tag text-[10px] text-ink-300/80 tracking-widest">LIVE NETWORK OPERATIONS</span>
+          </div>
+          <span className="mono-tag text-[8px] text-signal-green/70 px-2 py-0.5 rounded border border-signal-green/15 bg-signal-green/[0.04]">
+            ALL SYSTEMS GO
+          </span>
+        </div>
+
+        <NetworkOpsDashboard />
+
+        <div className="flex items-center justify-between mt-5 pt-4 border-t border-line/20">
+          <span className="mono-tag text-[8px] text-ink-500/40">GATEWAY 10.0.0.1</span>
+          <span className="mono-tag text-[8px] text-ink-500/40">REFRESH 2.4s</span>
+          <span className="mono-tag text-[8px] text-ink-500/40">LAB-A // 24 NODES</span>
         </div>
       </div>
     </section>

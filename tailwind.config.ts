@@ -9,23 +9,23 @@ const config: Config = {
     extend: {
       colors: {
         base: {
-          950: "#050810",
-          900: "#0a0e1a",
-          850: "#0f1525",
-          800: "#151d32",
-          700: "#1c2842",
-          600: "#263354",
+          950: "#04060e",
+          900: "#080d1b",
+          850: "#0e1527",
+          800: "#16203c",
+          700: "#1e2c50",
+          600: "#2a3d6b",
         },
-        line: "#1c2d4a",
+        line: "#1d2c50",
         signal: {
-          cyan: "#00d4aa",
-          blue: "#3b82f6",
+          cyan: "#22d3ee",
+          blue: "#3d7eff",
           amber: "#f59e0b",
           green: "#10b981",
         },
         ink: {
-          100: "#f0f4f8",
-          300: "#94a3b8",
+          100: "#f2f6fd",
+          300: "#93a3bf",
           500: "#64748b",
         },
       },
@@ -35,7 +35,7 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       backgroundImage: {
-        grid: "linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px)",
+        grid: "linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px)",
       },
       backgroundSize: {
         grid: "40px 40px",
@@ -96,8 +96,8 @@ const config: Config = {
           to: { opacity: "1", transform: "scale(1)" },
         },
         borderGlow: {
-          "0%, 100%": { borderColor: "rgba(0, 212, 170, 0.25)" },
-          "50%": { borderColor: "rgba(0, 212, 170, 0.5)" },
+          "0%, 100%": { borderColor: "rgba(34, 211, 238, 0.25)" },
+          "50%": { borderColor: "rgba(34, 211, 238, 0.5)" },
         },
         glowPulse: {
           "0%, 100%": { opacity: "0.4" },

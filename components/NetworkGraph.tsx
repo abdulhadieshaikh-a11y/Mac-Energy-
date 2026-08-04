@@ -28,8 +28,8 @@ export default function NetworkGraph() {
     <svg viewBox="0 0 600 430" className="w-full h-full" role="img" aria-label="Network topology diagram">
       <defs>
         <radialGradient id="gwGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#00d4aa" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#00d4aa" stopOpacity="0" />
+          <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -43,12 +43,12 @@ export default function NetworkGraph() {
               y1={from.y}
               x2={to.x}
               y2={to.y}
-              stroke="#1c2842"
+              stroke="#1e2c50"
               strokeWidth="1.5"
             />
             <motion.circle
               r="3"
-              fill="#00d4aa"
+              fill="#22d3ee"
               initial={{ opacity: 0 }}
               animate={{
                 cx: [from.x, to.x],
@@ -74,15 +74,15 @@ export default function NetworkGraph() {
             cx={n.x}
             cy={n.y}
             r={n.r}
-            fill="#0f1525"
-            stroke={n.id === "gw" ? "#00d4aa" : "#3b82f6"}
+            fill="#0e1527"
+            stroke={n.id === "gw" ? "#22d3ee" : "#3d7eff"}
             strokeWidth={n.id === "gw" ? 2.5 : 2}
           />
           <circle
             cx={n.x}
             cy={n.y}
             r="2.2"
-            fill={n.id === "gw" ? "#00d4aa" : "#3b82f6"}
+            fill={n.id === "gw" ? "#22d3ee" : "#3d7eff"}
             className="animate-pulseDot"
           />
           <text
@@ -102,7 +102,7 @@ export default function NetworkGraph() {
             textAnchor="middle"
             fontFamily="var(--font-mono)"
             fontSize="8"
-            fill="#00d4aa"
+            fill="#22d3ee"
             opacity="0.7"
           >
             {n.ip}

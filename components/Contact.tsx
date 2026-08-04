@@ -29,7 +29,7 @@ export default function Contact() {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=85')",
+            "url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=85')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -45,7 +45,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-20"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-20"
         >
           {responseStats.map((s) => (
             <div

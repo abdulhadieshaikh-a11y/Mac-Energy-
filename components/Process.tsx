@@ -8,7 +8,7 @@ const steps = [
     n: "01",
     title: "Assess",
     icon: Eye,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80",
     color: "signal-cyan",
     desc: "We walk the site, survey existing wiring and Wi-Fi, and map every device already on the network.",
     details: [
@@ -23,7 +23,7 @@ const steps = [
     n: "02",
     title: "Design",
     icon: Layers,
-    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80",
     color: "signal-blue",
     desc: "A topology is drawn up — routers, switches, VLANs, and cable runs — sized for current and future load.",
     details: [
@@ -53,7 +53,7 @@ const steps = [
     n: "04",
     title: "Monitor",
     icon: MonitorCheck,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80",
     color: "signal-amber",
     desc: "Uptime, latency, and device health are tracked continuously, with support on call to respond fast.",
     details: [

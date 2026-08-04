@@ -13,35 +13,26 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
-export const PHONE_DISPLAY = "0332-101955";
-export const PHONE_TEL = "tel:0332101955";
+export const PHONE_DISPLAY = "03332101955";
+export const PHONE_TEL = "tel:03332101955";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <a href="#top" className={`flex items-center gap-3 group ${className}`}>
       <div className="relative shrink-0">
-        <svg width="40" height="40" viewBox="0 0 40 40" className="shrink-0">
-          <path
-            d="M20 2 L36 11 L36 29 L20 38 L4 29 L4 11 Z"
-            fill="url(#logoGrad)"
-            stroke="#00d4aa"
-            strokeWidth="1.5"
-          />
-          <circle cx="20" cy="14" r="2.5" fill="#00d4aa" />
-          <circle cx="13" cy="24" r="2" fill="#3b82f6" />
-          <circle cx="27" cy="24" r="2" fill="#3b82f6" />
-          <line x1="20" y1="16.5" x2="13" y2="22" stroke="#00d4aa" strokeWidth="1" opacity="0.5" />
-          <line x1="20" y1="16.5" x2="27" y2="22" stroke="#00d4aa" strokeWidth="1" opacity="0.5" />
-          <line x1="13" y1="24" x2="27" y2="24" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
-          <circle cx="20" cy="14" r="1" fill="#00d4aa" className="animate-pulseDot" />
+        <svg width="44" height="44" viewBox="0 0 44 44" className="shrink-0">
+          <rect x="2" y="2" width="40" height="40" rx="12" fill="rgba(34,211,238,0.1)" />
+          <path d="M13 33V15h5l5 9 5-9h5v18" fill="none" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M13 23h18" stroke="#3d7eff" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="22" cy="14" r="2.5" fill="#93c5fd" />
           <defs>
             <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00d4aa" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.08" />
+              <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#3d7eff" stopOpacity="0.2" />
             </linearGradient>
           </defs>
         </svg>
-        <div className="absolute -inset-1.5 rounded-xl bg-signal-cyan/[0.08] blur-md group-hover:bg-signal-cyan/[0.12] transition-colors duration-500" />
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-signal-cyan/10 via-transparent to-signal-blue/5 blur-xl opacity-80" />
       </div>
       <span className="flex flex-col leading-none">
         <span className="font-display font-extrabold tracking-tight text-[19px] text-ink-100">
