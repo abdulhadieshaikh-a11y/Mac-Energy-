@@ -224,6 +224,22 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* ── Vertical Side Label ── */}
+      <div className="absolute right-7 top-1/2 -translate-y-1/2 z-[3] hidden xl:block mono-tag text-[10px] text-ink-500/40 tracking-[0.35em] [writing-mode:vertical-rl]">
+        NETWORK INFRASTRUCTURE &amp; SYSTEMS
+      </div>
+
+      {/* ── Bottom Status Pills ── */}
+      <div className="absolute bottom-8 left-5 md:left-8 z-[3] hidden lg:flex items-center gap-2 mono-tag text-[9px] text-ink-300/70 tracking-widest">
+        <span className="flex items-center gap-1.5 rounded-full border border-line/50 bg-base-950/40 backdrop-blur-md px-3.5 py-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-signal-green" />
+          ALL SYSTEMS GO
+        </span>
+        <span className="rounded-full border border-line/50 bg-base-950/40 backdrop-blur-md px-3.5 py-1.5">GATEWAY 10.0.0.1</span>
+        <span className="rounded-full border border-line/50 bg-base-950/40 backdrop-blur-md px-3.5 py-1.5">UPTIME 99.9%</span>
+        <span className="rounded-full border border-line/50 bg-base-950/40 backdrop-blur-md px-3.5 py-1.5">FIREWALL ACTIVE</span>
+      </div>
+
       {/* ── Scroll Indicator ── */}
       <a
         href="#services"

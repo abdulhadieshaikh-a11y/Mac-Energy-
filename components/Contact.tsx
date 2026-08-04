@@ -16,9 +16,33 @@ const quickServices = [
 ];
 
 const responseStats = [
-  { icon: Clock, value: "< 1hr", label: "Response Time" },
-  { icon: Headphones, value: "24/7", label: "Support Available" },
-  { icon: Zap, value: "Same Day", label: "Emergency Response" },
+  {
+    icon: Clock,
+    value: "< 1hr",
+    label: "Response Time",
+    color: "text-signal-cyan",
+    border: "border-signal-cyan/30",
+    bg: "bg-signal-cyan/10",
+    gradient: "from-signal-cyan to-signal-blue",
+  },
+  {
+    icon: Headphones,
+    value: "24/7",
+    label: "Support Available",
+    color: "text-signal-green",
+    border: "border-signal-green/30",
+    bg: "bg-signal-green/10",
+    gradient: "from-signal-green to-signal-cyan",
+  },
+  {
+    icon: Zap,
+    value: "Same Day",
+    label: "Emergency Response",
+    color: "text-signal-amber",
+    border: "border-signal-amber/30",
+    bg: "bg-signal-amber/10",
+    gradient: "from-signal-amber to-signal-cyan",
+  },
 ];
 
 export default function Contact() {
@@ -45,16 +69,25 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-20"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto mb-20"
         >
           {responseStats.map((s) => (
             <div
               key={s.label}
-              className="text-center rounded-xl border border-line/60 bg-base-900/60 backdrop-blur-sm p-5"
+              className="group relative text-center rounded-2xl border border-line/60 bg-base-900/60 backdrop-blur-md p-6 overflow-hidden hover:-translate-y-1 hover:border-signal-cyan/40 transition-all duration-300"
             >
-              <s.icon className="w-6 h-6 text-signal-cyan mx-auto mb-3" />
-              <div className="font-display font-bold text-xl text-ink-100">{s.value}</div>
-              <div className="mono-tag text-[9px] text-ink-500 mt-1">{s.label}</div>
+              {/* top accent */}
+              <div className={`absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent ${s.color} to-transparent opacity-60`} />
+              {/* soft glow */}
+              <div className={`absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full ${s.bg} blur-2xl opacity-60`} />
+              {/* icon */}
+              <span className={`relative w-12 h-12 rounded-xl ${s.bg} border ${s.border} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <s.icon size={20} className={s.color} />
+              </span>
+              <div className={`relative font-display font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r ${s.gradient}`}>
+                {s.value}
+              </div>
+              <div className="relative mono-tag text-[9px] text-ink-500 mt-2 tracking-wider">{s.label}</div>
             </div>
           ))}
         </motion.div>
@@ -132,13 +165,13 @@ export default function Contact() {
                 <ChevronRight size={16} className="text-ink-500 group-hover:text-signal-cyan transition-colors" />
               </a>
 
-              <a href="mailto:hello@macenergy.net" className="flex items-center gap-4 group rounded-xl border border-line bg-base-850/50 p-5 hover:border-signal-blue/40 transition-all duration-300">
+              <a href="mailto:info@macenergy.pk" className="flex items-center gap-4 group rounded-xl border border-line bg-base-850/50 p-5 hover:border-signal-blue/40 transition-all duration-300">
                 <span className="w-12 h-12 rounded-xl bg-signal-blue/10 border border-signal-blue/30 flex items-center justify-center shrink-0">
                   <Mail size={18} className="text-signal-blue" />
                 </span>
                 <div className="flex-1">
                   <div className="mono-tag text-[9.5px] text-ink-500">EMAIL</div>
-                  <div className="text-[16px] group-hover:text-signal-cyan transition-colors">hello@macenergy.net</div>
+                  <div className="text-[16px] group-hover:text-signal-cyan transition-colors">info@macenergy.pk</div>
                 </div>
                 <ChevronRight size={16} className="text-ink-500 group-hover:text-signal-cyan transition-colors" />
               </a>

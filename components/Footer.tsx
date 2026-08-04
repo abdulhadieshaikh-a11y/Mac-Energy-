@@ -176,9 +176,9 @@ export default function Footer() {
                 <Phone size={14} className="text-signal-green shrink-0" />
                 {PHONE_DISPLAY}
               </a>
-              <a href="mailto:hello@macenergy.net" className="flex items-center gap-2.5 text-[13px] text-ink-300 hover:text-signal-cyan transition-colors">
+              <a href="mailto:info@macenergy.pk" className="flex items-center gap-2.5 text-[13px] text-ink-300 hover:text-signal-cyan transition-colors">
                 <Mail size={14} className="text-signal-blue shrink-0" />
-                hello@macenergy.net
+                info@macenergy.pk
               </a>
               <div className="flex items-center gap-2.5 text-[13px] text-ink-500">
                 <MapPin size={14} className="text-signal-cyan shrink-0" />
