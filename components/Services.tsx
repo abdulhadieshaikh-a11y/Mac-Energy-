@@ -36,7 +36,7 @@ const services = [
     title: "Hardware & Devices",
     desc: "Procurement, imaging, and lifecycle support for laptops, desktops, monitors, and peripherals.",
     highlights: ["Bulk procurement", "OS imaging & MDM", "Lifecycle tracking"],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
+    image: "/images/hardware-devices.jpg",
   },
   {
     icon: ApiIcon,

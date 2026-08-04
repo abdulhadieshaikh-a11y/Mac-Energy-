@@ -53,7 +53,7 @@ const steps = [
     n: "04",
     title: "Monitor",
     icon: MonitorCheck,
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80",
+    image: "/images/process-monitor.jpg",
     color: "signal-amber",
     desc: "Uptime, latency, and device health are tracked continuously, with support on call to respond fast.",
     details: [
