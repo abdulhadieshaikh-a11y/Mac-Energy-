@@ -171,9 +171,8 @@ export default function Navbar() {
 
       {/* Mobile menu box — height capped to viewport so it fits small phones */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ${
-          open ? "max-h-[calc(100dvh-76px)] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className="lg:hidden overflow-hidden transition-[max-height,opacity] duration-300"
+        style={{ maxHeight: open ? "calc(100dvh - 76px)" : 0, opacity: open ? 1 : 0 }}
       >
         <div className="bg-base-950/95 backdrop-blur-2xl border-t border-line/30 px-4 py-4 flex flex-col gap-0.5 overflow-y-auto">
           {links.map((l, i) => (
