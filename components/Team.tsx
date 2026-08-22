@@ -8,11 +8,11 @@ const expertise = [
   { icon: Network, label: "Network Architecture", desc: "Enterprise-grade router, switch & gateway deployments" },
   { icon: Server, label: "Server Infrastructure", desc: "Rack builds, server provisioning & hardware lifecycle" },
   { icon: Wrench, label: "Computer Lab Setup", desc: "Complete lab wiring, workstation imaging & maintenance" },
-  { icon: Shield, label: "Network Security", desc: "Firewalls, VLAN segmentation & access control systems" },
+  { icon: Shield, label: "Cyber Security", desc: "Firewalls, VLAN segmentation & access control systems" },
 ];
 
 const stats = [
-  { value: "10+", label: "YEARS EXPERIENCE" },
+  { value: "20+", label: "YEARS EXPERIENCE" },
   { value: "500+", label: "DEVICES DEPLOYED" },
   { value: "99.9%", label: "UPTIME DELIVERED" },
 ];

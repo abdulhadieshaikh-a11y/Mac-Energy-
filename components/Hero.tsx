@@ -11,7 +11,8 @@ import {
   Router,
   Cable,
   Wifi,
-  Braces,
+  Database,
+  Bot,
   Activity,
   ChevronDown,
 } from "lucide-react";
@@ -19,8 +20,8 @@ import { PHONE_DISPLAY, PHONE_TEL } from "./Navbar";
 
 const heroSlides = [
   {
-    src: "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=1920&q=85",
-    alt: "Enterprise router hardware close-up",
+    src: "https://www.netrust.net/wp-content/uploads/2021/09/8683c93d-dcc5-4b11-826d-5e149774e5fe_TheImportanceof.jpg",
+    alt: "Modern network infrastructure",
   },
   {
     src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1920&q=85",
@@ -37,15 +38,15 @@ const features = [
   { icon: Cable, label: "Structured Cat6A Cabling" },
   { icon: Server, label: "Server Room Build-Out" },
   { icon: Wifi, label: "Wi-Fi & AP Deployment" },
-  { icon: Braces, label: "API & System Integration" },
-  { icon: Activity, label: "24/7 Monitoring & Support" },
+  { icon: Database, label: "ERP Solutions" },
+  { icon: Bot, label: "AI Solutions" },
 ];
 
 const stats = [
   { value: "8ms", label: "AVG. LATENCY" },
   { value: "99.9%", label: "NETWORK UPTIME" },
   { value: "1,200+", label: "DEVICES MANAGED" },
-  { value: "10+", label: "YEARS EXPERIENCE" },
+  { value: "20+", label: "YEARS EXPERIENCE" },
 ];
 
 const trustBadges = [
@@ -157,7 +158,7 @@ export default function Hero() {
               </span>
             </span>
             <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-signal-cyan via-signal-blue to-signal-amber">
-              your systems run on.
+              your systems rely on.
             </span>
           </h1>
 

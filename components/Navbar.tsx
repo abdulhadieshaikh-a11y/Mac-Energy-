@@ -13,8 +13,8 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
-export const PHONE_DISPLAY = "03332101955";
-export const PHONE_TEL = "tel:03332101955";
+export const PHONE_DISPLAY = "+92 333 2101955";
+export const PHONE_TEL = "tel:+923332101955";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
@@ -59,6 +59,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   // track active section on scroll
   useEffect(() => {
     const sectionIds = links.map((l) => l.href.replace("#", ""));
@@ -101,15 +108,14 @@ export default function Navbar() {
 
   return (
     <header
-      id="top"
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-base-950/92 backdrop-blur-2xl border-b border-line/30 shadow-xl shadow-black/30"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 md:px-8 h-[76px] flex items-center justify-between">
-        <Logo />
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-5 md:px-8 h-16 lg:h-[76px] flex items-center justify-between">
+        <Logo className="scale-[0.82] origin-left lg:scale-100" />
 
         {/* Desktop nav */}
         <nav ref={navRef} className="hidden lg:flex items-center gap-0.5 relative">
@@ -162,7 +168,9 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen((o) => !o)}
-          className="lg:hidden text-ink-100 p-2.5 rounded-xl hover:bg-white/[0.06] transition-colors border border-line/30"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          className="lg:hidden relative z-[70] text-ink-100 p-2 rounded-lg hover:bg-white/[0.06] transition-colors border border-line/30"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -171,10 +179,14 @@ export default function Navbar() {
 
       {/* Mobile menu box — height capped to viewport so it fits small phones */}
       <div
-        className="lg:hidden overflow-hidden transition-[max-height,opacity] duration-300"
-        style={{ maxHeight: open ? "calc(100dvh - 76px)" : 0, opacity: open ? 1 : 0 }}
+        id="mobile-navigation"
+        className="lg:hidden fixed top-16 left-0 right-0 z-[60] overflow-y-auto bg-base-950/98 backdrop-blur-2xl border-t border-line/30 shadow-2xl shadow-black/50"
+        style={{
+          display: open ? "block" : "none",
+          maxHeight: "calc(100dvh - 64px)",
+        }}
       >
-        <div className="bg-base-950/95 backdrop-blur-2xl border-t border-line/30 px-4 py-4 flex flex-col gap-0.5 overflow-y-auto">
+        <div className="px-4 py-4 flex flex-col gap-0.5">
           {links.map((l, i) => (
             <a
               key={l.href}

@@ -11,8 +11,11 @@ const quickServices = [
   "Structured Cabling & Patch Panels",
   "Wi-Fi Deployment & Coverage",
   "Hardware Procurement & Imaging",
-  "API & Systems Integration",
-  "24/7 Monitoring & Support",
+  "ERP Solutions",
+  "Cyber Security",
+  "IT Automation",
+  "IT Audit",
+  "AI Solutions",
 ];
 
 const responseStats = [
@@ -255,9 +258,12 @@ export default function Contact() {
                 <option>Computer Lab Setup</option>
                 <option>Server Room Build-Out</option>
                 <option>Hardware &amp; Device Management</option>
-                <option>API &amp; Systems Integration</option>
+                <option>ERP Solutions</option>
                 <option>Wi-Fi Deployment</option>
-                <option>Network Security Audit</option>
+                <option>Cyber Security</option>
+                <option>IT Automation</option>
+                <option>IT Audit</option>
+                <option>AI Solutions</option>
                 <option>Emergency / Troubleshooting</option>
                 <option>Something else</option>
               </select>

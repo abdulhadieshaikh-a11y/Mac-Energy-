@@ -24,9 +24,12 @@ const serviceLinks = [
   { label: "Network Infrastructure", href: "#services" },
   { label: "Computer Lab Setup", href: "#services" },
   { label: "Hardware & Devices", href: "#services" },
-  { label: "API & Integration", href: "#services" },
+  { label: "ERP Solutions", href: "#services" },
   { label: "Structured Cabling", href: "#services" },
-  { label: "Network Security", href: "#services" },
+  { label: "Cyber Security", href: "#services" },
+  { label: "IT Automation", href: "#services" },
+  { label: "IT Audit", href: "#services" },
+  { label: "AI Solutions", href: "#services" },
 ];
 
 const companyLinks = [

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { CSSProperties, ComponentType } from "react";
-import { RouterIcon, SwitchIcon, LaptopIcon, MonitorIcon, ServerRackIcon, CableIcon } from "./HardwareIcons";
+import { RouterIcon, SwitchIcon, ServerRackIcon, ShieldIcon } from "./HardwareIcons";
 
 type GearItem = {
   icon: ComponentType<{ className?: string }>;
@@ -17,10 +17,24 @@ type GearItem = {
 const gear: GearItem[] = [
   {
     icon: RouterIcon,
+    name: "Network Infrastructure",
+    meta: "CORE // ROUTERS & SWITCHES",
+    image: "/images/network-infra.jpg",
+    specs: "Connected routing, switching, and gateway systems built for reliable traffic flow",
+  },
+  {
+    icon: RouterIcon,
     name: "Edge Router",
     meta: "GATEWAY // 10.0.0.1",
     image: "/images/edge-router.jpg",
     specs: "High-throughput routing with failover support",
+  },
+  {
+    icon: ServerRackIcon,
+    name: "Data Center",
+    meta: "FACILITY // HIGH AVAILABILITY",
+    image: "https://www.switch.com/wp-content/uploads/2021/10/21-10_BlgHdr_Kywrd-CarrierNeutralDC_3840x2160.jpeg",
+    specs: "Scalable data center environments for secure, resilient business operations",
   },
   {
     icon: SwitchIcon,
@@ -38,25 +52,11 @@ const gear: GearItem[] = [
     specs: "42U rack with managed power distribution",
   },
   {
-    icon: LaptopIcon,
-    name: "Endpoint Fleet",
-    meta: "FLEET // 340 UNITS",
-    image: "/images/endpoint-fleet.jpg",
-    specs: "Imaged and enrolled with centralized management",
-  },
-  {
-    icon: MonitorIcon,
-    name: "Workstation Displays",
-    meta: "DISPLAY // 27\" QHD",
-    image: "https://images.unsplash.com/photo-1685515967639-3bbd7853fbe7?w=600&q=80",
-    specs: "Dual-display setups for maximum productivity",
-  },
-  {
-    icon: CableIcon,
-    name: "Structured Cabling",
-    meta: "CAT6A // PATCH PANEL",
-    image: "https://images.unsplash.com/photo-1507333199169-84fd735371fb?w=600&q=80",
-    specs: "Cat6A runs with certified test results",
+    icon: ShieldIcon,
+    name: "Cyber Security",
+    meta: "SECURITY // PROTECTION & CONTROL",
+    image: "https://i0.wp.com/thetac.tech/wp-content/uploads/2025/02/top-cyber-certs.jpg?fit=1860%2C1102&ssl=10_BlgHdr_Kywr",
+    specs: "Security controls that protect users, devices, data, and critical systems",
   },
 ];
 

@@ -23,7 +23,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Mac Energy — Network Infrastructure & IT Systems",
   description:
-    "Mac Energy is a professional networking team delivering network infrastructure, computer lab setup, hardware management, and API & systems integration.",
+    "Mac Energy delivers network infrastructure, cyber security, IT automation, ERP, IT audit, AI, computer lab setup, and hardware management.",
 };
 
 export default function RootLayout({

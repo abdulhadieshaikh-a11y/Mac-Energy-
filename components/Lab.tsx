@@ -48,17 +48,17 @@ export default function Lab() {
             className="rounded-2xl overflow-hidden border border-line relative group"
           >
             <img
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
-              alt="Server Room with rack-mounted networking equipment"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdAs8W2dXkOK3d5gA9BRNS8aha4Kkz4smQNeozU2sWs15o2JP76J2aFds&s=10"
+              alt="IT tools and technology systems"
               className="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-base-950/80 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
               <div className="mono-tag text-[10px] text-signal-green flex items-center gap-1.5 mb-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-signal-green" />
-                LIVE MONITORING
+                IT TOOLS
               </div>
-              <div className="text-[13px] text-ink-300">Server racks with redundant power and cooling systems</div>
+              <div className="text-[13px] text-ink-300">Tools and systems that keep modern IT operations running</div>
             </div>
           </motion.div>
 

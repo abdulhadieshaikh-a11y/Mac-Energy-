@@ -3,24 +3,20 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import {
-  RouterIcon,
-  SwitchIcon,
   MonitorIcon,
-  ServerRackIcon,
   CableIcon,
   WifiIcon,
-  ShieldIcon,
-  ApiIcon,
 } from "./HardwareIcons";
+import { Bot, ClipboardCheck, Cog, Database } from "lucide-react";
 
 const services = [
   {
-    icon: RouterIcon,
+    icon: Bot,
     tag: "01",
-    title: "Network Infrastructure",
-    desc: "Design and deployment of routers, switches, and gateways that keep traffic moving without bottlenecks.",
-    highlights: ["Router & gateway setup", "VLAN configuration", "Failover redundancy"],
-    image: "/images/network-infra.jpg",
+    title: "AI-First Vision",
+    desc: "AI-led solutions that turn complex information into clearer decisions, smarter workflows, and measurable growth.",
+    highlights: ["AI strategy & planning", "Intelligent workflows", "Data-led decisions"],
+    image: "https://www.csm.tech/storage/uploads/images/5026AI2.jpg",
   },
   {
     icon: MonitorIcon,
@@ -31,28 +27,28 @@ const services = [
     image: "/images/computer-lab-setup.jpg",
   },
   {
-    icon: ServerRackIcon,
+    icon: Database,
     tag: "03",
-    title: "Hardware & Devices",
-    desc: "Procurement, imaging, and lifecycle support for laptops, desktops, monitors, and peripherals.",
-    highlights: ["Bulk procurement", "OS imaging & MDM", "Lifecycle tracking"],
-    image: "/images/hardware-devices.jpg",
-  },
-  {
-    icon: ApiIcon,
-    tag: "04",
-    title: "API & Integration",
-    desc: "Connecting internal tools and services through clean, documented, well-monitored APIs.",
-    highlights: ["REST & webhook APIs", "Tool interconnection", "Health monitoring"],
-    image: "/images/api-integration.jpg",
+    title: "ERP Solutions",
+    desc: "Connected ERP systems that bring finance, inventory, operations, and reporting into one clear view.",
+    highlights: ["ERP setup & configuration", "Process visibility", "Business reporting"],
+    image: "https://www.mechanicalpower.net/wp-content/uploads/2023/07/Enterprise-Resource-Planning.jpg",
   },
   {
     icon: CableIcon,
-    tag: "05",
+    tag: "04",
     title: "Structured Cabling",
     desc: "Cat6/Cat6a runs, patch panels, and cable management done to a standard that survives audits.",
     highlights: ["Cat6A certified runs", "Patch panel labeling", "Audit-ready docs"],
     image: "/images/structured-cabling.jpg",
+  },
+  {
+    icon: Cog,
+    tag: "05",
+    title: "IT Automation",
+    desc: "Automated workflows for onboarding, support, backups, reporting, and routine IT operations.",
+    highlights: ["Workflow automation", "Scheduled operations", "Fewer manual tasks"],
+    image: "https://t4.ftcdn.net/jpg/03/34/24/51/360_F_334245117_44IfoeWPh85LGEd7AwAE0LbBvTzJkkZe.jpg",
   },
   {
     icon: WifiIcon,
@@ -63,20 +59,28 @@ const services = [
     image: "/images/wireless-deployment.jpg",
   },
   {
-    icon: ShieldIcon,
+    icon: Bot,
     tag: "07",
-    title: "Network Security",
-    desc: "Firewalls, VLAN segmentation, and access control that keep unwanted traffic out.",
-    highlights: ["Firewall rulesets", "VLAN isolation", "Access policies"],
-    image: "/images/network-security.jpg",
+    title: "AI Solutions",
+    desc: "Useful AI systems that reduce manual work, surface better insights, and help teams make faster decisions.",
+    highlights: ["AI workflow planning", "Smart reporting", "Assisted operations"],
+    image: "https://www.ntu.edu.sg/media/images/innovationlibraries/tech-portal/tech-offer/artificial-intelligence-architecture.jpg?sfvrsn=c609e65b_8",
   },
   {
-    icon: SwitchIcon,
+    icon: ClipboardCheck,
     tag: "08",
-    title: "Monitoring & Support",
-    desc: "24/7 uptime monitoring with a support line that actually picks up when something breaks.",
-    highlights: ["Real-time dashboards", "Alert escalation", "24/7 hotline"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
+    title: "IT Audit",
+    desc: "Structured audits that reveal technology risks, control gaps, and clear priorities for improvement.",
+    highlights: ["Asset & access review", "Risk assessment", "Audit-ready reports"],
+    image: "https://t3.ftcdn.net/jpg/21/19/34/40/360_F_2119344023_id84HNYGtBiExjbFaLrlBsub9GKvALAD.jpg",
+  },
+  {
+    icon: Database,
+    tag: "09",
+    title: "Digital Transformation Consulting",
+    desc: "A practical roadmap for modernizing systems, connecting teams, and moving the business forward with confidence.",
+    highlights: ["Digital strategy", "System modernization", "Transformation roadmap"],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl20uwpTHtUhBYwIUpOzR-37rxQD61LtdNTMWPHvn71MzkpS2f1RkJNc&s=10",
   },
 ];
 
@@ -88,7 +92,7 @@ export default function Services() {
         <div className="relative mb-16 md:mb-20">
           {/* decorative background number */}
           <div className="absolute -top-6 -left-4 md:-left-8 font-display font-extrabold text-[120px] md:text-[180px] leading-none text-signal-cyan/[0.04] select-none pointer-events-none">
-            08
+            9
           </div>
 
           <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -126,7 +130,7 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-ink-300 mt-4 leading-relaxed text-[15px]"
               >
-                From the wire in the wall to the API in the cloud — we plan, install, and
+                From the wire in the wall to intelligent business systems — we plan, install, and
                 maintain the systems that keep computers, labs, and applications talking to
                 each other.
               </motion.p>
@@ -141,7 +145,7 @@ export default function Services() {
               className="flex items-center gap-4 rounded-xl border border-line bg-base-900/60 backdrop-blur-sm px-5 py-3 shrink-0"
             >
               <div>
-                <div className="font-display font-extrabold text-2xl text-signal-cyan">8</div>
+                <div className="font-display font-extrabold text-2xl text-signal-cyan">9</div>
                 <div className="mono-tag text-[8px] text-ink-500">SERVICES</div>
               </div>
               <div className="w-px h-8 bg-line" />
