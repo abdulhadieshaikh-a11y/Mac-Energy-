@@ -18,7 +18,7 @@ export const PHONE_TEL = "tel:+923332101955";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <a href="#top" className={`flex items-center gap-3 group ${className}`}>
+    <a href="#top" className={`flex items-center gap-2.5 sm:gap-3 group min-w-0 ${className}`}>
       <div className="relative shrink-0">
         <svg width="44" height="44" viewBox="0 0 44 44" className="shrink-0">
           <rect x="2" y="2" width="40" height="40" rx="12" fill="rgba(34,211,238,0.1)" />
@@ -34,11 +34,13 @@ export function Logo({ className = "" }: { className?: string }) {
         </svg>
         <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-signal-cyan/10 via-transparent to-signal-blue/5 blur-xl opacity-80" />
       </div>
-      <span className="flex flex-col leading-none">
-        <span className="font-display font-extrabold tracking-tight text-[19px] text-ink-100">
+      <span className="flex flex-col leading-none min-w-0">
+        <span className="font-display font-extrabold tracking-tight text-[15px] sm:text-[19px] text-ink-100 whitespace-nowrap">
           MAC <span className="text-transparent bg-clip-text bg-gradient-to-r from-signal-cyan to-signal-blue">ENERGY</span>
         </span>
-        <span className="mono-tag text-[8px] text-ink-500 mt-0.5 tracking-[0.15em]">NETWORK &amp; SYSTEMS</span>
+        <span className="mono-tag text-[7px] sm:text-[8px] text-ink-500 mt-0.5 tracking-[0.12em] sm:tracking-[0.15em] whitespace-nowrap">
+          NETWORK &amp; SYSTEMS
+        </span>
       </span>
     </a>
   );
@@ -114,8 +116,8 @@ export default function Navbar() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-5 md:px-8 h-16 lg:h-[76px] flex items-center justify-between">
-        <Logo className="scale-[0.82] origin-left lg:scale-100" />
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-5 md:px-8 h-16 lg:h-[76px] flex items-center justify-between gap-3 w-full min-w-0">
+        <Logo className="scale-[0.72] origin-left sm:scale-[0.82] lg:scale-100 shrink-0" />
 
         {/* Desktop nav */}
         <nav ref={navRef} className="hidden lg:flex items-center gap-0.5 relative">
@@ -170,7 +172,7 @@ export default function Navbar() {
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
           aria-controls="mobile-navigation"
-          className="lg:hidden relative z-[70] text-ink-100 p-2 rounded-lg hover:bg-white/[0.06] transition-colors border border-line/30"
+          className="lg:hidden relative z-[70] text-ink-100 p-2 rounded-lg hover:bg-white/[0.06] transition-colors border border-line/30 shrink-0"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -180,13 +182,13 @@ export default function Navbar() {
       {/* Mobile menu box — height capped to viewport so it fits small phones */}
       <div
         id="mobile-navigation"
-        className="lg:hidden fixed top-16 left-0 right-0 z-[60] overflow-y-auto bg-base-950/98 backdrop-blur-2xl border-t border-line/30 shadow-2xl shadow-black/50"
+        className="lg:hidden fixed inset-x-0 top-16 z-[60] overflow-y-auto bg-base-950/98 backdrop-blur-2xl border-t border-line/30 shadow-2xl shadow-black/50 w-full"
         style={{
           display: open ? "block" : "none",
           maxHeight: "calc(100dvh - 64px)",
         }}
       >
-        <div className="px-4 py-4 flex flex-col gap-0.5">
+        <div className="px-4 py-4 flex flex-col gap-0.5 w-full max-w-full box-border">
           {links.map((l, i) => (
             <a
               key={l.href}

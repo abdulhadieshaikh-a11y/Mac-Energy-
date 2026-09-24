@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-display: "Segoe UI", "Arial", sans-serif;
+  --font-body: "Segoe UI", "Arial", sans-serif;
+  --font-mono: "Consolas", "SFMono-Regular", monospace;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 body {
