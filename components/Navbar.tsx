@@ -18,31 +18,11 @@ export const PHONE_TEL = "tel:+923332101955";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <a href="#top" className={`flex items-center gap-2.5 sm:gap-3 group min-w-0 ${className}`}>
-      <div className="relative shrink-0">
-        <svg width="44" height="44" viewBox="0 0 44 44" className="shrink-0">
-          <rect x="2" y="2" width="40" height="40" rx="12" fill="rgba(34,211,238,0.1)" />
-          <path d="M13 33V15h5l5 9 5-9h5v18" fill="none" stroke="#22d3ee" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M13 23h18" stroke="#3d7eff" strokeWidth="2" strokeLinecap="round" />
-          <circle cx="22" cy="14" r="2.5" fill="#93c5fd" />
-          <defs>
-            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#3d7eff" stopOpacity="0.2" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-signal-cyan/10 via-transparent to-signal-blue/5 blur-xl opacity-80" />
-      </div>
-      <span className="flex flex-col leading-none min-w-0">
-        <span className="font-display font-extrabold tracking-tight text-[15px] sm:text-[19px] text-ink-100 whitespace-nowrap">
-          MAC <span className="text-transparent bg-clip-text bg-gradient-to-r from-signal-cyan to-signal-blue">ENERGY</span>
-        </span>
-        <span className="mono-tag text-[7px] sm:text-[8px] text-ink-500 mt-0.5 tracking-[0.12em] sm:tracking-[0.15em] whitespace-nowrap">
-          NETWORK &amp; SYSTEMS
-        </span>
-      </span>
-    </a>
+    <img
+      src="/images/logo.png"
+      alt="MacEnergy"
+      className={`h-10 w-auto ${className}`}
+    />
   );
 }
 
