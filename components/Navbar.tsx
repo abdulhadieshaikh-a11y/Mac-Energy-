@@ -18,6 +18,15 @@ export const PHONE_TEL = "tel:+923332101955";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
+    <div className={`flex items-center gap-3 ${className}`}>
+      <img src="/images/logo.png" alt="MacEnergy" className="h-10 w-auto" />
+      <span className="text-white text-2xl font-bold tracking-wide">
+        Mac Energy
+      </span>
+    </div>
+  );
+}
+  return (
     <img
       src="/images/logo.png"
       alt="MacEnergy"
