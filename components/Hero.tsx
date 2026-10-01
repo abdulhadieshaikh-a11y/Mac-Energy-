@@ -197,7 +197,6 @@ export default function Hero() {
             >
               <Phone size={17} />
               <span>Call Now</span>
-              <span className="text-signal-green/60 font-mono text-[12px]">{PHONE_DISPLAY}</span>
             </a>
           </div>
 
