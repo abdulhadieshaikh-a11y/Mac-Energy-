@@ -164,13 +164,13 @@ export default function Contact() {
                 <ChevronRight size={16} className="text-ink-500 group-hover:text-signal-cyan transition-colors" />
               </a>
 
-              <a href="mailto:info@macenergy.pk" className="flex items-center gap-4 group rounded-xl border border-line bg-base-850/50 p-5 hover:border-signal-blue/40 transition-all duration-300">
+              <a href="mailto:sales@macener9y.com" className="flex items-center gap-4 group rounded-xl border border-line bg-base-850/50 p-5 hover:border-signal-blue/40 transition-all duration-300">
                 <span className="w-12 h-12 rounded-xl bg-signal-blue/10 border border-signal-blue/30 flex items-center justify-center shrink-0">
                   <Mail size={18} className="text-signal-blue" />
                 </span>
                 <div className="flex-1">
                   <div className="mono-tag text-[9.5px] text-ink-500">EMAIL</div>
-                  <div className="text-[16px] group-hover:text-signal-cyan transition-colors">info@macenergy.pk</div>
+                  <div className="text-[16px] group-hover:text-signal-cyan transition-colors">sales@macener9y.com</div>
                 </div>
                 <ChevronRight size={16} className="text-ink-500 group-hover:text-signal-cyan transition-colors" />
               </a>
@@ -181,7 +181,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <div className="mono-tag text-[9.5px] text-ink-500">SERVICE AREA</div>
-                  <div className="text-[16px]">On-site & remote support across Pakistan</div>
+                  <div className="text-[16px]">Plot #227-C, Central Commercial Area, Off Tariq Road, Block 2, P.E.C.H.S, Karachi</div>
                 </div>
               </div>
             </motion.div>

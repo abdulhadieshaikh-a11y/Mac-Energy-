@@ -76,17 +76,17 @@ export default function Team() {
                   </span>
                   <span className="text-[14px] group-hover:text-signal-cyan transition-colors">{PHONE_DISPLAY}</span>
                 </a>
-                <a href="mailto:info@macenergy.pk" className="flex items-center gap-3 group">
+                <a href="mailto:sales@macener9y.com" className="flex items-center gap-3 group">
                   <span className="w-9 h-9 rounded-lg bg-signal-blue/10 border border-signal-blue/30 flex items-center justify-center shrink-0">
                     <Mail size={15} className="text-signal-blue" />
                   </span>
-                  <span className="text-[14px] group-hover:text-signal-cyan transition-colors">info@macenergy.pk</span>
+                  <span className="text-[14px] group-hover:text-signal-cyan transition-colors">sales@macener9y.com</span>
                 </a>
                 <div className="flex items-center gap-3">
                   <span className="w-9 h-9 rounded-lg bg-base-900 border border-line flex items-center justify-center shrink-0">
                     <MapPin size={15} className="text-ink-500" />
                   </span>
-                  <span className="text-[14px] text-ink-300">On-site & remote support across Pakistan</span>
+                  <span className="text-[14px] text-ink-300">Plot #227-C, Central Commercial Area, Off Tariq Road, Block 2, P.E.C.H.S, Karachi</span>
                 </div>
               </div>
             </div>
