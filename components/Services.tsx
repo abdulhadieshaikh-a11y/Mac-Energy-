@@ -19,16 +19,8 @@ const services = [
     image: "https://www.csm.tech/storage/uploads/images/5026AI2.jpg",
   },
   {
-    icon: MonitorIcon,
-    tag: "02",
-    title: "Computer Lab Setup",
-    desc: "Full lab builds — workstations, monitors, shared storage, and classroom-ready network access.",
-    highlights: ["24+ seat labs", "Dual-monitor setups", "Centralized imaging"],
-    image: "/images/computer-lab-setup.jpg",
-  },
-  {
     icon: Database,
-    tag: "03",
+    tag: "02",
     title: "ERP Solutions",
     desc: "Connected ERP systems that bring finance, inventory, operations, and reporting into one clear view.",
     highlights: ["ERP setup & configuration", "Process visibility", "Business reporting"],
@@ -36,7 +28,7 @@ const services = [
   },
   {
     icon: CableIcon,
-    tag: "04",
+    tag: "03",
     title: "Structured Cabling",
     desc: "Cat6/Cat6a runs, patch panels, and cable management done to a standard that survives audits.",
     highlights: ["Cat6A certified runs", "Patch panel labeling", "Audit-ready docs"],
@@ -44,7 +36,7 @@ const services = [
   },
   {
     icon: Cog,
-    tag: "05",
+    tag: "04",
     title: "IT Automation",
     desc: "Automated workflows for onboarding, support, backups, reporting, and routine IT operations.",
     highlights: ["Workflow automation", "Scheduled operations", "Fewer manual tasks"],
@@ -52,7 +44,7 @@ const services = [
   },
   {
     icon: WifiIcon,
-    tag: "06",
+    tag: "05",
     title: "Wireless Deployment",
     desc: "Site-surveyed Wi-Fi coverage with access point placement tuned for real-world density.",
     highlights: ["Heat map surveys", "AP density planning", "Zero dead zones"],
@@ -60,7 +52,7 @@ const services = [
   },
   {
     icon: Bot,
-    tag: "07",
+    tag: "06",
     title: "AI Solutions",
     desc: "Useful AI systems that reduce manual work, surface better insights, and help teams make faster decisions.",
     highlights: ["AI workflow planning", "Smart reporting", "Assisted operations"],
@@ -68,7 +60,7 @@ const services = [
   },
   {
     icon: ClipboardCheck,
-    tag: "08",
+    tag: "07",
     title: "IT Audit",
     desc: "Structured audits that reveal technology risks, control gaps, and clear priorities for improvement.",
     highlights: ["Asset & access review", "Risk assessment", "Audit-ready reports"],
@@ -76,7 +68,7 @@ const services = [
   },
   {
     icon: Database,
-    tag: "09",
+    tag: "08",
     title: "Digital Transformation Consulting",
     desc: "A practical roadmap for modernizing systems, connecting teams, and moving the business forward with confidence.",
     highlights: ["Digital strategy", "System modernization", "Transformation roadmap"],
