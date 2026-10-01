@@ -19,19 +19,15 @@ export const PHONE_TEL = "tel:+923332101955";
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <img src="/images/logo.png" alt="MacEnergy" className="h-10 w-auto" />
-      <span className="text-white text-2xl font-bold tracking-wide">
+      <img
+        src="/images/logo.png"
+        alt="MacEnergy"
+        className="h-14 w-auto bg-transparent"
+      />
+      <span className="text-white text-2xl font-bold tracking-wide whitespace-nowrap">
         Mac Energy
       </span>
     </div>
-  );
-}
-  return (
-    <img
-      src="/images/logo.png"
-      alt="MacEnergy"
-      className={`h-10 w-auto ${className}`}
-    />
   );
 }
 
@@ -141,13 +137,6 @@ export default function Navbar() {
         {/* Desktop right actions */}
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href={PHONE_TEL}
-            className="flex items-center gap-2.5 font-body text-[13px] font-medium text-ink-300 hover:text-signal-green transition-all px-4 py-2.5 rounded-xl hover:bg-signal-green/[0.06] border border-transparent hover:border-signal-green/20"
-          >
-            <span className="w-2 h-2 rounded-full bg-signal-green animate-pulseDot" />
-            {PHONE_DISPLAY}
-          </a>
-          <a
             href="#contact"
             className="group font-body text-[12px] font-bold px-6 py-2.5 rounded-xl bg-gradient-to-r from-signal-cyan to-signal-blue text-base-950 hover:shadow-lg hover:shadow-signal-cyan/20 transition-all duration-300 flex items-center gap-2 hover:gap-3"
           >
@@ -195,10 +184,6 @@ export default function Navbar() {
             </a>
           ))}
           <div className="border-t border-line/30 mt-2 pt-3 flex flex-col gap-2.5">
-            <a href={PHONE_TEL} onClick={() => setOpen(false)} className="flex items-center gap-3 text-[14px] font-medium text-signal-green px-4 py-3 rounded-xl bg-signal-green/[0.06] border border-signal-green/20">
-              <span className="w-2 h-2 rounded-full bg-signal-green animate-pulseDot" />
-              {PHONE_DISPLAY}
-            </a>
             <a
               href="#contact"
               onClick={() => setOpen(false)}
