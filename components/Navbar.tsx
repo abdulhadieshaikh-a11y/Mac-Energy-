@@ -119,7 +119,7 @@ export default function Navbar() {
                   : "text-ink-400 hover:text-ink-100 hover:bg-white/[0.05]"
               }`}
             >
-                <span className="font-bold tracking-wide text-[20px]">{l.label}</span>            
+                <span className="font-bold tracking-wide text-[18px]">{l.label}</span>            
                 </a>
           ))}
           {/* animated underline */}
@@ -179,7 +179,7 @@ export default function Navbar() {
               }`}
               style={{ transitionDelay: `${i * 30}ms` }}
             >
-              <span className="font-bold tracking-wide text-[20px]">{l.label}</span>
+              <span className="font-bold tracking-wide text-[18px]">{l.label}</span>
               <ChevronRight size={14} className="text-ink-500 shrink-0" />
             </a>
           ))}
