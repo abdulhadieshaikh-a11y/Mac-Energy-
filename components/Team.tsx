@@ -37,27 +37,27 @@ export default function Team() {
               {/* Avatar + name */}
               <div className="flex items-center gap-5 mb-6">
                 <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-signal-cyan/20 to-signal-blue/20 border border-signal-cyan/30 flex items-center justify-center">
-                  <span className="font-display font-bold text-signal-cyan text-2xl">JS</span>
+                  <img src="/images/logo.png" alt="Mac Energy" className="w-14 h-auto object-contain" />
                 </div>
                 <div>
-                  <h3 className="font-display font-extrabold text-2xl text-ink-100 tracking-tight">Jawed Shaikh</h3>
-                  <p className="mono-tag text-[11px] text-signal-cyan mt-1">FOUNDER & LEAD ENGINEER</p>
+                  <h3 className="font-display font-extrabold text-2xl text-ink-100 tracking-tight">Mac Energy</h3>
+                  <p className="mono-tag text-[11px] text-signal-cyan mt-1">EST. 2000 · CERTIFIED IT PROFESSIONALS</p>
                 </div>
               </div>
 
               {/* Bio */}
               <p className="text-ink-300 text-[15px] leading-relaxed mb-6">
-                The founder and lead engineer behind Mac Energy. With over a decade of
-                hands-on experience in network infrastructure, Jawed leads every project
-                from initial site assessment through final deployment — ensuring every
-                cable, switch, and API is built to stay online.
+                Founded in 2000, Mac Energy is powered by a team of highly skilled and
+                certified IT professionals. Our experts bring strong technical expertise in
+                networking, cybersecurity, IT infrastructure, and technology solutions.
               </p>
               <p className="text-ink-300 text-[15px] leading-relaxed mb-6">
-                From small office setups to large-scale computer labs with hundreds of
-                workstations, Jawed and the Mac Energy team deliver infrastructure that
-                businesses depend on daily.
+                With industry-recognized certifications and hands-on experience, the Mac
+                Energy team delivers every project with professionalism, precision, and a
+                strong focus on security and reliability. We combine proven expertise with
+                modern technology to build secure, scalable, and high-performance IT
+                environments that businesses can rely on.
               </p>
-
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 border-t border-line pt-6 mb-6">
                 {stats.map((s) => (
