@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Phone, Mail, MapPin, ArrowRight, Clock, MessageSquare, Zap, Headphones, ChevronRight } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_TEL } from "./Navbar";
 
@@ -210,88 +211,125 @@ export default function Contact() {
           </div>
 
           {/* Right: Contact Form */}
-          <motion.form
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6 }}
-            onSubmit={(e) => e.preventDefault()}
-            className="rounded-2xl border border-line bg-base-900/80 backdrop-blur-md p-7 sm:p-8 space-y-5"
-          >
-            <div className="mb-2">
-              <h3 className="font-display font-bold text-xl">Send Us a Message</h3>
-              <p className="text-ink-500 text-[13px] mt-1">Fill out the form and we&apos;ll get back to you within 24 hours.</p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label className="mono-tag text-[10px] text-ink-500 block mb-2">NAME</label>
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  className="w-full bg-base-850 border border-line rounded-md px-4 py-3 text-[14px] outline-none focus:border-signal-cyan/60 transition-colors placeholder:text-ink-500"
-                />
-              </div>
-              <div>
-                <label className="mono-tag text-[10px] text-ink-500 block mb-2">PHONE</label>
-                <input
-                  type="tel"
-                  placeholder="03XX-XXXXXXX"
-                  className="w-full bg-base-850 border border-line rounded-md px-4 py-3 text-[14px] outline-none focus:border-signal-cyan/60 transition-colors placeholder:text-ink-500"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="mono-tag text-[10px] text-ink-500 block mb-2">EMAIL (OPTIONAL)</label>
-              <input
-                type="email"
-                placeholder="you@example.com"
-                className="w-full bg-base-850 border border-line rounded-md px-4 py-3 text-[14px] outline-none focus:border-signal-cyan/60 transition-colors placeholder:text-ink-500"
-              />
-            </div>
-
-            <div>
-              <label className="mono-tag text-[10px] text-ink-500 block mb-2">WHAT DO YOU NEED?</label>
-              <select className="w-full bg-base-850 border border-line rounded-md px-4 py-3 text-[14px] outline-none focus:border-signal-cyan/60 transition-colors text-ink-300">
-                <option>Network Infrastructure</option>
-                <option>Computer Lab Setup</option>
-                <option>Server Room Build-Out</option>
-                <option>Hardware &amp; Device Management</option>
-                <option>ERP Solutions</option>
-                <option>Wi-Fi Deployment</option>
-                <option>Cyber Security</option>
-                <option>IT Automation</option>
-                <option>IT Audit</option>
-                <option>AI Solutions</option>
-                <option>Emergency / Troubleshooting</option>
-                <option>Something else</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="mono-tag text-[10px] text-ink-500 block mb-2">MESSAGE</label>
-              <textarea
-                rows={4}
-                placeholder="Tell us about your site, number of machines, current setup, or any issues you're facing..."
-                className="w-full bg-base-850 border border-line rounded-md px-4 py-3 text-[14px] outline-none focus:border-signal-cyan/60 transition-colors resize-none placeholder:text-ink-500"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 bg-signal-cyan text-base-950 font-semibold px-6 py-4 rounded-md hover:bg-signal-cyan/85 transition-all duration-300 hover:shadow-lg hover:shadow-signal-cyan/20"
-            >
-              Send Request
-              <ArrowRight size={16} />
-            </button>
-
-            <p className="text-ink-500 text-[11px] text-center">
-              We typically respond within 1 business day. For urgent issues, call us directly.
-            </p>
-          </motion.form>
+          <ContactForm />
         </div>
       </div>
     </section>
+  );
+}
+function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.append("access_key", "c8b92cd8-11be-43c9-832d-885a5b85bd16");
+    data.append("subject", `New website request: ${data.get("service")}`);
+    data.append("from_name", "Mac Energy Website");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
+      const json = await res.json();
+      if (json.success) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  const inputClass =
+    "w-full bg-base-850 border border-line rounded-md px-4 py-3 text-[14px] outline-none focus:border-signal-cyan/60 transition-colors placeholder:text-ink-500";
+
+  return (
+    <motion.form
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6 }}
+      onSubmit={handleSubmit}
+      className="rounded-2xl border border-line bg-base-900/80 backdrop-blur-md p-7 sm:p-8 space-y-5"
+    >
+      <div className="mb-2">
+        <h3 className="font-display font-bold text-xl">Send Us a Message</h3>
+        <p className="text-ink-500 text-[13px] mt-1">Fill out the form and we&apos;ll get back to you within 24 hours.</p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label className="mono-tag text-[10px] text-ink-500 block mb-2">NAME</label>
+          <input name="name" type="text" required placeholder="Your name" className={inputClass} />
+        </div>
+        <div>
+          <label className="mono-tag text-[10px] text-ink-500 block mb-2">PHONE</label>
+          <input name="phone" type="tel" required placeholder="03XX-XXXXXXX" className={inputClass} />
+        </div>
+      </div>
+
+      <div>
+        <label className="mono-tag text-[10px] text-ink-500 block mb-2">EMAIL (OPTIONAL)</label>
+        <input name="email" type="email" placeholder="you@example.com" className={inputClass} />
+      </div>
+
+      <div>
+        <label className="mono-tag text-[10px] text-ink-500 block mb-2">WHAT DO YOU NEED?</label>
+        <select name="service" className={`${inputClass} text-ink-300`}>
+          <option>Network Infrastructure</option>
+          <option>Computer Lab Setup</option>
+          <option>Server Room Build-Out</option>
+          <option>Hardware &amp; Device Management</option>
+          <option>ERP Solutions</option>
+          <option>Wi-Fi Deployment</option>
+          <option>Cyber Security</option>
+          <option>IT Automation</option>
+          <option>IT Audit</option>
+          <option>AI Solutions</option>
+          <option>Emergency / Troubleshooting</option>
+          <option>Something else</option>
+        </select>
+      </div>
+
+      <div>
+        <label className="mono-tag text-[10px] text-ink-500 block mb-2">MESSAGE</label>
+        <textarea
+          name="message"
+          rows={4}
+          required
+          placeholder="Tell us about your site, number of machines, current setup, or any issues you're facing..."
+          className={`${inputClass} resize-none`}
+        />
+      </div>
+
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="w-full inline-flex items-center justify-center gap-2 bg-signal-cyan text-base-950 font-semibold px-6 py-4 rounded-md hover:bg-signal-cyan/85 transition-all duration-300 hover:shadow-lg hover:shadow-signal-cyan/20 disabled:opacity-60"
+      >
+        {status === "sending" ? "Sending..." : "Send Request"}
+        <ArrowRight size={16} />
+      </button>
+
+      {status === "sent" && (
+        <p className="text-signal-green text-[14px] text-center">
+          ✓ Thank you! Your request has been sent. We&apos;ll contact you shortly.
+        </p>
+      )}
+
+      {status === "error" && (
+        <p className="text-red-400 text-[14px] text-center">
+          Something went wrong. Please call us directly at {PHONE_DISPLAY}.
+        </p>
+      )}
+
+      <p className="text-ink-500 text-[11px] text-center">
+        We typically respond within 1 business day. For urgent issues, call us directly.
+      </p>
+    </motion.form>
   );
 }
