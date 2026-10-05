@@ -119,7 +119,7 @@ export default function Navbar() {
                   : "text-ink-400 hover:text-ink-100 hover:bg-white/[0.05]"
               }`}
             >
-              <span classname="font-bold tracking-wide text-[18px]">{l.label}</span>
+              <span classname="font-bold tracking-wide text-[20px]">{l.label}</span>
             </a>
           ))}
           {/* animated underline */}
