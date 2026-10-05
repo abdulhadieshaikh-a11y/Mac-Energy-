@@ -24,7 +24,7 @@ export function Logo({ className = "" }: { className?: string }) {
         alt="MacEnergy"
         className="h-14 w-auto bg-transparent"
       />
-      <span className="text-white text-2xl font-bold tracking-wide whitespace-nowrap">
+          <span className="text-2xl font-bold tracking-wide whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-signal-cyan via-signal-blue to-signal-amber">
         Mac Energy
       </span>
     </div>
