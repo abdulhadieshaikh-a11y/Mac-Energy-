@@ -175,20 +175,20 @@ export default function Footer() {
 
             {/* Contact info */}
             <div className="mt-6 space-y-3 border-t border-line/40 pt-5">
-              <a href={PHONE_TEL} className="flex items-center gap-2.5 text-[13px] text-ink-300 hover:text-signal-cyan transition-colors">
-                <Phone size={14} className="text-signal-green shrink-0" />
+              <a href={PHONE_TEL} className="flex items-center gap-3 text-[16px] text-ink-300 hover:text-signal-cyan transition-colors">
+                <Phone size={18} className="text-signal-green shrink-0" />
                 {PHONE_DISPLAY}
               </a>
-              <a href="mailto:sales@macener9y.com" className="flex items-center gap-2.5 text-[13px] text-ink-300 hover:text-signal-cyan transition-colors">
-                <Mail size={14} className="text-signal-blue shrink-0" />
+              <a href="mailto:sales@macener9y.com" className="flex items-center gap-3 text-[16px] text-ink-300 hover:text-signal-cyan transition-colors">
+                <Mail size={18} className="text-signal-blue shrink-0" />
                 sales@macener9y.com
               </a>
-              <div className="flex items-center gap-2.5 text-[13px] text-ink-500">
-                <MapPin size={14} className="text-signal-cyan shrink-0" />
+              <div className="flex items-center gap-3 text-[16px] text-ink-500">
+                <MapPin size={18} className="text-signal-cyan shrink-0" />
                 On-site &amp; remote — Pakistan
               </div>
-              <div className="flex items-center gap-2.5 text-[13px] text-ink-500">
-                <Clock size={14} className="text-signal-amber shrink-0" />
+              <div className="flex items-center gap-3 text-[16px] text-ink-500">
+                <Clock size={18} className="text-signal-amber shrink-0" />
                 Mon–Sat, 9AM – 8PM
               </div>
             </div>
