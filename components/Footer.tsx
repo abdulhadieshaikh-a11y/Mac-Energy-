@@ -183,10 +183,10 @@ export default function Footer() {
                 <Mail size={18} className="text-signal-blue shrink-0" />
                 sales@macener9y.com
               </a>
-              <div className="flex items-center gap-3 text-[16px] text-ink-500">
-                <MapPin size={18} className="text-signal-cyan shrink-0" />
-                On-site &amp; remote — Pakistan
-              </div>
+     <div className="flex items-start gap-3 text-[16px] text-ink-500">
+  <MapPin size={18} className="text-signal-cyan shrink-0 mt-0.5" />
+  Plot #227-C, Central Commercial Area, Off Tariq Road, Block 2, P.E.C.H.S, Karachi
+</div>
               <div className="flex items-center gap-3 text-[16px] text-ink-500">
                 <Clock size={18} className="text-signal-amber shrink-0" />
                 Mon–Sat, 9AM – 8PM
